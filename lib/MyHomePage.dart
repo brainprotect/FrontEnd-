@@ -15,61 +15,61 @@ class MyHomePage extends StatelessWidget {
             Expanded(
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: const Text(
-                  '로고',
-                  textAlign: TextAlign.left,
-                ),
+                child: const Text('로고', textAlign: TextAlign.left),
               ),
             ),
-            // 지도 버튼
-            IconButton(
-              icon: const Icon(Icons.map),
-              onPressed: () {
-                // 버튼을 눌렀을 때의 동작
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const MapPage()),
-                );
-              },
-            ),
           ],
         ),
       ),
-      body: const Center(
-        child: Text('앱 내용'),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            // IconButton(
-            //   icon: const Icon(Icons.arrow_back),
-            //   onPressed: () {
-            //     // 뒤로가기인데 메인페이지에서는 필요없어서 고민중
-            //     // 만들고 보니 작동할 일이 없어서 주석처리 해둠gi
-            //   },
-            // ),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const ChoicePage()),
-                );
-              },
-              child: const Text('뇌동맥 판단 버튼'),
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const ChatBotPage()),
-                );
-              },
-              child: const Text('챗봇 버튼'),
-
-            ),
-          ],
-        ),
+      body: const Center(child: Text('앱 내용')),
+      bottomNavigationBar: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Image.asset('assets/map_icon.png', width: 24, height: 24),
+            label: '지도',
+          ),
+          BottomNavigationBarItem(
+            icon: Image.asset('assets/decision_icon.png', width: 24, height: 24),
+            label: '뇌동맥 판단',
+          ),
+          BottomNavigationBarItem(
+            icon: Image.asset('assets/decision_icon.png', width: 24, height: 24),
+            label: '커뮤니티',
+          ),
+          BottomNavigationBarItem(
+            icon: Image.asset('assets/chatbot_icon.png', width: 24, height: 24),
+            label: '챗봇',
+          ),
+        ],
+        onTap: (index) {
+          // 탭에 따른 페이지 이동 로직
+          switch (index) {
+            case 0:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const MapPage()),
+              );
+              break;
+            case 1:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ChoicePage()),
+              );
+              break;
+            case 2:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ChoicePage()),
+              );
+              break;
+            case 3:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ChatBotPage()),
+              );
+              break;
+          }
+        },
       ),
     );
   }
