@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:brain/ResultPage.dart';
 
-//직접입력페이지
+//직접 입력 페이지
+
 class InputPage extends StatelessWidget {
   const InputPage({Key? key}) : super(key: key);
 
