@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:brain/InputPage.dart';
+import 'package:brain/GetInformation.dart';
 
-//위험군 페이지
+// 위험군 페이지
 class ChoicePage extends StatelessWidget {
   const ChoicePage({Key? key}) : super(key: key);
 
@@ -15,25 +16,40 @@ class ChoicePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const InputPage()),
-                    );
-                  },
-                  child: const Text('직접 입력'),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    // 두 번째 버튼 눌렀을 때 동작
-                  },
-                  child: const Text('촬영하기'),
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const InputPage()),
+                  );
+                },
+                child: const Text('직접 입력'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  // 두 번째 버튼 눌렀을 때 동작
+                },
+                child: const Text('촬영하기'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  // 세 번째 버튼 눌렀을 때 동작
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const GetInformation()),
+                  );
+                },
+                child: const Text('건강 정보 불러오기'),
+              ),
             ),
           ],
         ),
