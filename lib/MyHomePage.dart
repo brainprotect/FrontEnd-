@@ -4,8 +4,8 @@ import 'package:brain/ChoicePage.dart';
 import 'package:brain/ChatBotPage.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-
-class HoverImage extends StatefulWidget { //이미지에 마우스를 올렸을 경우
+class HoverImage extends StatefulWidget {
+  //이미지에 마우스를 올렸을 경우
   final String imagePath;
 
   const HoverImage({Key? key, required this.imagePath}) : super(key: key);
@@ -24,21 +24,25 @@ class _HoverImageState extends State<HoverImage> {
       onExit: (event) => setState(() => opacity = 0.5), // 마우스가 벗어날 때 투명도 50%
       child: Opacity(
         opacity: opacity,
-        child: Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          child: Container(
-            margin: EdgeInsets.all(5),
-            child: Image.asset(widget.imagePath, fit: BoxFit.cover),
+        child: Container(
+          child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0), // Card 모서리 둥글게
+            ),
+            child: ClipRRect(
+              // 이미지 모서리를 둥글게 처리
+              borderRadius: BorderRadius.circular(10.0),
+              child: Image.asset(
+                widget.imagePath,
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
         ),
       ),
     );
   }
 }
-
-
 
 // 메인 페이지
 class MyHomePage extends StatelessWidget {
@@ -50,23 +54,49 @@ class MyHomePage extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(80.0), // AppBar의 높이를 80.0으로 설정
         child: AppBar(
-          title: Center(
-            child: IconButton(
-              icon: Image.asset('MainLogo.png'),
-              padding: EdgeInsets.zero,
-              onPressed: () {},
-            ),
+          title: Text(''),
+          centerTitle: true,
+          flexibleSpace: LayoutBuilder(
+            builder: (BuildContext context, BoxConstraints constraints) {
+              return Container(
+                padding: EdgeInsets.only(top: constraints.maxHeight * 0.1),
+                // 상단 패딩 조정
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  // 가로 방향으로 중앙 정렬
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  // 세로 방향으로 중앙 정렬
+                  children: [
+                    Expanded(
+                      // 로고가 중앙에 오도록 확장
+                      child: Center(
+                        child: IconButton(
+                          icon: Image.asset('MainLogo.png'),
+                          padding: EdgeInsets.zero,
+                          onPressed: () {},
+                        ),
+                      ),
+                    ),
+                    IconButton(
+                      // 사용자 아이콘은 오른쪽에 위치
+                      icon: Image.asset('UserIcon.png'),
+                      onPressed: () {},
+                      padding: EdgeInsets.symmetric(
+                          vertical: constraints.maxHeight * 0.1), // 세로 패딩 조정
+                    ),
+                  ],
+                ),
+              );
+            },
           ),
           actions: <Widget>[
-            IconButton(
-              icon: Image.asset('UserIcon.png'),
-              onPressed: () {},
-            ),
+            // AppBar의 actions 속성은 여전히 사용할 수 있지만, 이 예제에서는 사용하지 않음
+            SizedBox(width: 48), // IconButton의 기본 크기와 동일한 공간 확보
           ],
-          centerTitle: true,
         ),
       ),
-      body: SingleChildScrollView( // 전체 body에 스크롤 기능 추가
+      body: SingleChildScrollView(
+        // 전체 body에 스크롤 기능 추가
         child: Column(
           children: [
             Container(
@@ -125,31 +155,51 @@ class MyHomePage extends StatelessWidget {
                 ],
               ),
             ),
-            CarouselSlider(
-              options: CarouselOptions(
-                height: MediaQuery.of(context).size.height * 0.25,
-                autoPlay: true,
-                enlargeCenterPage: true,
-                viewportFraction: 0.8,
-                aspectRatio: 16/9,
-                initialPage: 0,
+            Padding(
+              padding: const EdgeInsets.only(top: 50.0, bottom: 80.0),
+              // 위아래 마진 부여
+              child: CarouselSlider(
+                options: CarouselOptions(
+                  height: MediaQuery.of(context).size.height * 0.25,
+                  autoPlay: true,
+                  enlargeCenterPage: true,
+                  viewportFraction: 0.8,
+                  aspectRatio: 16 / 9,
+                  initialPage: 0,
+                ),
+                items: [1, 2, 3, 4].map((i) {
+                  return Builder(
+                    builder: (BuildContext context) {
+                      return Container(
+                        width: MediaQuery.of(context).size.width,
+                        margin: EdgeInsets.symmetric(horizontal: 5.0),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10), // 모서리 둥글게
+                          boxShadow: [
+                            // 그림자 효과
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 2,
+                              blurRadius: 5,
+                              offset:
+                                  Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
+                        ),
+                        child: ClipRRect(
+                          // Container 내부의 모든 것들도 둥글게 처리
+                          borderRadius: BorderRadius.circular(10), // 모서리 둥글게
+                          child: Center(
+                            child:
+                                Text('박스 $i', style: TextStyle(fontSize: 16.0)),
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                }).toList(),
               ),
-              items: [1, 2, 3, 4].map((i) {
-                return Builder(
-                  builder: (BuildContext context) {
-                    return Container(
-                      width: MediaQuery.of(context).size.width,
-                      margin: EdgeInsets.symmetric(horizontal: 5.0),
-                      decoration: BoxDecoration(
-                        color: Colors.amber,
-                      ),
-                      child: Center(
-                        child: Text('박스 $i', style: TextStyle(fontSize: 16.0)),
-                      ),
-                    );
-                  },
-                );
-              }).toList(),
             ),
             Container(
               height: MediaQuery.of(context).size.height * 0.55,
@@ -167,8 +217,6 @@ class MyHomePage extends StatelessWidget {
           ],
         ),
       ),
-
-
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         // 아이템들이 동일한 공간을 차지하도록 설정
