@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:brain/MapPage.dart';
 import 'package:brain/ChoicePage.dart';
 import 'package:brain/ChatBotPage.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 
-class HoverImage extends StatefulWidget {
+class HoverImage extends StatefulWidget { //이미지에 마우스를 올렸을 경우
   final String imagePath;
 
   const HoverImage({Key? key, required this.imagePath}) : super(key: key);
@@ -124,26 +125,31 @@ class MyHomePage extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              height: MediaQuery.of(context).size.height * 0.25,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 4,
-                itemBuilder: (context, index) {
-                  return Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: Container(
-                      width: 150,
-                      margin: EdgeInsets.all(5),
-                      child: Center(
-                        child: Text('박스 ${index + 1}'),
-                      ),
-                    ),
-                  );
-                },
+            CarouselSlider(
+              options: CarouselOptions(
+                height: MediaQuery.of(context).size.height * 0.25,
+                autoPlay: true,
+                enlargeCenterPage: true,
+                viewportFraction: 0.8,
+                aspectRatio: 16/9,
+                initialPage: 0,
               ),
+              items: [1, 2, 3, 4].map((i) {
+                return Builder(
+                  builder: (BuildContext context) {
+                    return Container(
+                      width: MediaQuery.of(context).size.width,
+                      margin: EdgeInsets.symmetric(horizontal: 5.0),
+                      decoration: BoxDecoration(
+                        color: Colors.amber,
+                      ),
+                      child: Center(
+                        child: Text('박스 $i', style: TextStyle(fontSize: 16.0)),
+                      ),
+                    );
+                  },
+                );
+              }).toList(),
             ),
             Container(
               height: MediaQuery.of(context).size.height * 0.55,
