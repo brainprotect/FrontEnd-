@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:brain/MapPage.dart';
 import 'package:brain/ChoicePage.dart';
-import 'package:brain/ChatBotPage.dart';
+import 'package:brain/pages/chat_page.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class HoverImage extends StatefulWidget {
@@ -263,7 +263,7 @@ class MyHomePage extends StatelessWidget {
             case 3:
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const ChatBotPage()),
+                MaterialPageRoute(builder: (context) => ChatPage()),
               );
               break;
           }
