@@ -1,5 +1,3 @@
-import 'dart:async';
-import 'dart:developer';
 
 import 'package:brain/ChatBotPage.dart';
 import 'package:brain/ChoicePage.dart';
@@ -15,7 +13,8 @@ class MapPage extends StatefulWidget {
 
 class _MapPageState extends State<MapPage> {
   late GoogleMapController mapController;
-  final LatLng _center = const LatLng(37.27573, 127.1326); // 센터 위도 경도
+  final LatLng _center = const LatLng(37.272149, 127.108282); // 센터 위도 경도
+
 
   // Define a Set to hold the markers
   Set<Marker> _markers = {};
@@ -24,25 +23,53 @@ class _MapPageState extends State<MapPage> {
     mapController = controller;
 
     // Add marker when map is created
-    _addMarker();
+    addMarkersFromCoordinatesAndNames();
   }
 
+  int _markerIdCounter = 1;
   // Function to add marker
-  void _addMarker() {
+  void _addMarker(double latitude, double longitude) {
     setState(() {
       _markers.add(
         Marker(
-          markerId: MarkerId("1"), // A unique identifier for the marker
-          position: _center, // Position of the marker
-          infoWindow: InfoWindow(
-            title: "강남대학교", // Title for the InfoWindow
-            snippet: "우리학교", // Snippet for the InfoWindow
-          ),
+          markerId: MarkerId(_markerIdCounter.toString()), // Unique identifier for the marker
+          position: LatLng(latitude, longitude), // Position of the marker
+          // infoWindow: InfoWindow(
+          //   title: hospitalName, // Title for the InfoWindow
+          //   //snippet: "병원", // You can customize the snippet as needed
+          // ),
           icon: BitmapDescriptor.defaultMarker, // Icon for the marker
         ),
       );
+      _markerIdCounter++;
     });
   }
+
+  void addMarkersFromCoordinatesAndNames() {
+    _addMarker(37.32226705, 127.0959527);
+    _addMarker(37.27077538, 127.1481873);
+    _addMarker(37.2675855, 127.0792803);
+    _addMarker(37.27367477, 127.1114343);
+    _addMarker(37.2745915, 127.072624);
+    _addMarker(37.32984985, 127.1093531);
+    _addMarker(37.2331599, 127.2108993);
+    _addMarker(37.2967488, 127.1088556);
+    _addMarker(37.24031755, 127.2144905);
+    _addMarker(37.21935921, 127.2135029);
+    _addMarker(37.23154215, 127.2113984);
+    _addMarker(37.138525, 127.4134609);
+    _addMarker(37.30065634, 127.0661905);
+    _addMarker(37.31681485, 127.0847982);
+    _addMarker(37.27428289, 127.1391788);
+    _addMarker(37.26573275, 127.1505813);
+    _addMarker(37.2736269, 127.2278566);
+    _addMarker(37.2932897, 127.1214353);
+    _addMarker(37.23539578, 127.2010802);
+    _addMarker(37.3315314, 127.1127594);
+    // Add other coordinates and hospital names similarly
+  }
+
+// Call addMarkersFromCoordinatesAndNames() to add markers with coordinates and hospital names
 
   @override
   Widget build(BuildContext context) {
