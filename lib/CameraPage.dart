@@ -2,6 +2,8 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+import 'InputPage.dart';
+
 class CameraPage extends StatefulWidget {
   @override
   _CameraPageState createState() => _CameraPageState();
@@ -62,6 +64,22 @@ class _CameraPageState extends State<CameraPage> {
               ),
             ],
           ),
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => InputPage()),
+                );
+              },
+              child: const Text('다음 단계로'),
+            ),
+          ],
         ),
       ),
     );
