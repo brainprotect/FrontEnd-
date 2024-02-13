@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:brain/InputPage.dart';
 import 'package:brain/GetInformation.dart';
 
+import 'CameraPage.dart';
+
 // 위험군 페이지
 class ChoicePage extends StatelessWidget {
   const ChoicePage({Key? key}) : super(key: key);
@@ -32,11 +34,15 @@ class ChoicePage extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
                 onPressed: () {
-                  // 두 번째 버튼 눌렀을 때 동작
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => CameraPage()), // 'const' 제거
+                  );
                 },
                 child: const Text('촬영하기'),
               ),
             ),
+
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
