@@ -53,6 +53,7 @@ class _MapPageState extends State<MapPage> {
     _addMarker(37.27545, 127.0735);
     _addMarker(37.27433, 127.139);
     _addMarker(37.29349, 127.121415);
+
     // Add other coordinates and hospital names similarly
   }
 
