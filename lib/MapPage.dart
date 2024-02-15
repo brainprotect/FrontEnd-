@@ -38,7 +38,8 @@ class _MapPageState extends State<MapPage> {
           //   title: hospitalName, // Title for the InfoWindow
           //   //snippet: "병원", // You can customize the snippet as needed
           // ),
-          icon: BitmapDescriptor.defaultMarker, // Icon for the marker
+          // icon: BitmapDescriptor.defaultMarker, // Icon for the marker
+          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue), //블루로 색상 바꾸는거 근데 안되서 assess로 따와야함
         ),
       );
       _markerIdCounter++;
