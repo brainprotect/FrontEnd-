@@ -45,12 +45,12 @@ class _HomeState extends State<Home> {
           'ChatBot',
           style: TextStyle(color: Colors.black), // 앱 바 텍스트 색상을 검은색으로 변경
         ),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black), // 뒤로가기 아이콘의 색상을 검은색으로 변경
-          onPressed: () {
-            Navigator.of(context).pop(); // 뒤로가기 버튼이 눌렸을 때 이전 화면으로 이동
-          },
-        ),
+        // leading: IconButton(
+        //   icon: Icon(Icons.arrow_back, color: Colors.black),
+        //   onPressed: () {
+        //     Navigator.of(context).pop();
+        //   },
+        // ),
       ),
       body: Container(
         child: Column(
