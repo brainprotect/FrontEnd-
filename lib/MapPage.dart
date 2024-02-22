@@ -38,7 +38,8 @@ class _MapPageState extends State<MapPage> {
           //   title: hospitalName, // Title for the InfoWindow
           //   //snippet: "병원", // You can customize the snippet as needed
           // ),
-          icon: BitmapDescriptor.defaultMarker, // Icon for the marker
+          // icon: BitmapDescriptor.defaultMarker, // Icon for the marker
+          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue), //블루로 색상 바꾸는거 근데 안되서 assess로 따와야함
         ),
       );
       _markerIdCounter++;
@@ -46,26 +47,13 @@ class _MapPageState extends State<MapPage> {
   }
 
   void addMarkersFromCoordinatesAndNames() {
-    _addMarker(37.32226705, 127.0959527);
-    _addMarker(37.27077538, 127.1481873);
-    _addMarker(37.2675855, 127.0792803);
-    _addMarker(37.27367477, 127.1114343);
-    _addMarker(37.2745915, 127.072624);
-    _addMarker(37.32984985, 127.1093531);
-    _addMarker(37.2331599, 127.2108993);
-    _addMarker(37.2967488, 127.1088556);
-    _addMarker(37.24031755, 127.2144905);
-    _addMarker(37.21935921, 127.2135029);
-    _addMarker(37.23154215, 127.2113984);
-    _addMarker(37.138525, 127.4134609);
-    _addMarker(37.30065634, 127.0661905);
-    _addMarker(37.31681485, 127.0847982);
-    _addMarker(37.27428289, 127.1391788);
-    _addMarker(37.26573275, 127.1505813);
-    _addMarker(37.2736269, 127.2278566);
-    _addMarker(37.2932897, 127.1214353);
-    _addMarker(37.23539578, 127.2010802);
-    _addMarker(37.3315314, 127.1127594);
+    _addMarker(37.271, 127.0959527);
+    _addMarker(37.27402, 127.1115);
+    _addMarker(37.27714, 127.1525);
+    _addMarker(37.27545, 127.0735);
+    _addMarker(37.27433, 127.139);
+    _addMarker(37.29349, 127.121415);
+
     // Add other coordinates and hospital names similarly
   }
 
