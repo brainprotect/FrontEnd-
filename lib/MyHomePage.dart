@@ -112,8 +112,7 @@ class MyHomePage extends StatelessWidget {
                       onPressed: () {},
                       child: Text("국민건강보험"),
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
-                        onPrimary: Colors.black,
+                        foregroundColor: Colors.black, backgroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0),
                         ),
@@ -128,8 +127,7 @@ class MyHomePage extends StatelessWidget {
                       onPressed: () {},
                       child: Text('정부24'),
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
-                        onPrimary: Colors.black,
+                        foregroundColor: Colors.black, backgroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0),
                         ),
@@ -144,8 +142,7 @@ class MyHomePage extends StatelessWidget {
                       onPressed: () {},
                       child: Text('한국건강관리협회'),
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
-                        onPrimary: Colors.black,
+                        foregroundColor: Colors.black, backgroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0),
                         ),
