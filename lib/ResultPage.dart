@@ -11,6 +11,8 @@ class ResultPage extends StatefulWidget {
   _ResultPageState createState() => _ResultPageState();
 }
 
+
+
 class _ResultPageState extends State<ResultPage> {
   @override
   Widget build(BuildContext context) {
@@ -62,13 +64,13 @@ class _ResultPageState extends State<ResultPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // 첫 번째 결과 표시 영역
-            ResultSection(title: '뇌동맥 위험성'),
+            ResultSection(title: '뇌동맥 위험도 측정 결과'),
             SizedBox(height: 20), // 각 결과 표시 영역 사이의 간격
             // 두 번째 결과 표시 영역
-            ResultSection(title: '뇌동맥 가능성'),
+            ResultSection(title: '위험도에 따른 솔루션 안내'),
             SizedBox(height: 20), // 각 결과 표시 영역 사이의 간격
             // 세 번째 결과 표시 영역
-            ResultSection(title: '필요성'),
+            ResultSection(title: '뇌동맥류 치료에 대한 안내'),
           ],
         ),
       ),
@@ -140,52 +142,54 @@ class _ResultSectionState extends State<ResultSection> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 250,
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: Colors.grey[200], // 배경 색상 설정
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          // 결과 텍스트와 + 아이콘
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                widget.title,
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
+    return SingleChildScrollView(
+      child: Container(
+        width: 300,
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          color: Colors.grey[200], // 배경 색상 설정
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            // 결과 텍스트와 + 아이콘
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  widget.title,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
                 ),
-              ),
-              IconButton(
-                icon: Icon(showDescription ? Icons.remove : Icons.add),
-                onPressed: () {
-                  setState(() {
-                    // 설명 보이기/숨기기 토글
-                    showDescription = !showDescription;
-                  });
-                },
-              ),
-            ],
-          ),
-          // 설명 텍스트 (showDescription이 true일 때만 보임)
-          if (showDescription)
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Text(
-                _getDescription(), // 변경된 설명을 가져옴
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.black,
+                IconButton(
+                  icon: Icon(showDescription ? Icons.remove : Icons.add),
+                  onPressed: () {
+                    setState(() {
+                      // 설명 보이기/숨기기 토글
+                      showDescription = !showDescription;
+                    });
+                  },
                 ),
-              ),
+              ],
             ),
-        ],
+            // 설명 텍스트 (showDescription이 true일 때만 보임)
+            if (showDescription)
+              Padding(
+                padding: const EdgeInsets.only(top: 10),
+                child: Text(
+                  _getDescription(), // 변경된 설명을 가져옴
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+          ],
+        ),
       ),
     );
   }
@@ -193,12 +197,12 @@ class _ResultSectionState extends State<ResultSection> {
   // 설명을 반환하는 함수
   String _getDescription() {
     switch (widget.title) {
-      case '뇌동맥 위험성':
-        return '여기에 설명1을 표시합니다.';
-      case '뇌동맥 가능성':
-        return '여기에 설명2를 표시합니다.';
-      case '필요성':
-        return '여기에 설명3을 표시합니다.';
+      case '뇌동맥 위험도 측정 결과':
+        return '의심: 뇌동맥류의 초기 증상이 나타나는 단계로, 두통, 어지러움, 시야 변화 등이 발생할 수 있습니다. 이러한 증상이 나타날 경우 반드시 의료진의 상담을 받아야 합니다.';
+      case '위험도에 따른 솔루션 안내':
+        return '의심일 경우: 증상이 의심스러운 경우, 즉시 의료진의 상담을 받아야 합니다. 의료진은 증상을 평가하고 적절한 검사를 통해 뇌동맥류의 가능성을 확인할 수 있습니다.';
+      case '뇌동맥류 치료에 대한 안내':
+        return '1. 진단: 뇌동맥류의 존재와 심각성을 확인하기 위해 진단 검사가 필요합니다. 이는 CT 스캔, MRI 또는 혈관조영술과 같은 영상검사를 포함할 수 있습니다. 2. 평가: 뇌동맥류의 크기, 위치 및 혈류에 대한 평가가 이루어집니다. 이를 통해 치료 방법을 결정할 수 있습니다. 3. 약물 치료: 일반적으로 뇌동맥류의 발생을 막기 위해 혈압 조절제, 혈액 희석제, 콜레스테롤 감소제 등의 약물이 처방될 수 있습니다. 4. 수술 치료: 심각한 뇌동맥류의 경우, 수술이 필요할 수 있습니다. 수술은 뇌동맥류를 제거하거나 뇌동맥류 주변의 혈액 순환을 복구하고 뇌 조직에 압력을 줄이는 등의 목적으로 수행될 수 있습니다. 5. 재활 및 관리: 수술 후 뇌동맥류의 관리와 회복을 위해 재활 프로그램이 필요할 수 있습니다. 이는 뇌동맥류의 재발을 예방하고 환자의 기능을 최대한 회복하는 데 도움을 줍니다.';
       default:
         return '';
     }
