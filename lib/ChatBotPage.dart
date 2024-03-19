@@ -1,6 +1,7 @@
 import 'package:brain/Messages.dart';
 import 'package:dialog_flowtter/dialog_flowtter.dart';
 import 'package:flutter/material.dart';
+import 'MyHomePage.dart';
 
 // 챗봇 페이지
 class ChatBotPage extends StatelessWidget {
@@ -38,19 +39,22 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white, // 배경색을 흰색으로 변경
+      backgroundColor: Color(0xFF1C2541), // 배경색을 흰색으로 변경
       appBar: AppBar(
-        backgroundColor: Colors.white, // 앱 바 배경색을 흰색으로 변경
-        title: Text(
-          'ChatBot',
-          style: TextStyle(color: Colors.black), // 앱 바 텍스트 색상을 검은색으로 변경
+        backgroundColor: Color(0xFF1C2541),
+        title: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const MyHomePage()), // 홈 화면으로 이동하는 페이지로 변경
+            );
+          },
+          child: Text(
+            'BRAINPROTECT', // AppBar에 BRAINPROTECT 텍스트 추가
+            style: TextStyle(color: Color(0xFFACD0EF)), // 텍스트 색상을 Color(0xFFACD0EF)로 설정
+          ),
         ),
-        // leading: IconButton(
-        //   icon: Icon(Icons.arrow_back, color: Colors.black),
-        //   onPressed: () {
-        //     Navigator.of(context).pop();
-        //   },
-        // ),
+        centerTitle: true,
       ),
       body: Container(
         child: Column(
@@ -58,13 +62,21 @@ class _HomeState extends State<Home> {
             Expanded(child: MessagesScreen(messages: messages)),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-              color: Colors.white,
+               // 입력하는 텍스트 필드의 배경색을 흰색으로 변경
               child: Row(
                 children: [
                   Expanded(
                     child: TextField(
                       controller: _controller,
                       style: TextStyle(color: Colors.black),
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide.none, // 텍스트 필드의 외곽선 제거
+                          borderRadius: BorderRadius.circular(20), // 텍스트 필드의 모서리를 둥글게 설정
+                        ),
+                        filled: true,
+                        fillColor: Colors.white, // 입력하는 텍스트 필드의 배경색을 5BC0BE로 변경
+                      ),
                     ),
                   ),
                   IconButton(

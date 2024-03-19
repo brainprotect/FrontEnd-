@@ -35,11 +35,16 @@ class _MessagesScreenState extends State<MessagesScreen> {
                               widget.messages[index]['isUserMessage'] ? 20 : 0),
                         ),
                         color: widget.messages[index]['isUserMessage']
-                            ? Colors.grey.shade800
-                            : Colors.grey.shade900.withOpacity(0.8)),
+                            ? Colors.white
+                            : Color(0xFF5BC0BE),),
                     constraints: BoxConstraints(maxWidth: w * 2 / 3),
-                    child:
-                    Text(widget.messages[index]['message'].text.text[0])),
+                    child: Text(
+                    widget.messages[index]['message'].text.text[0],
+                    style: TextStyle(
+                    color: widget.messages[index]['isUserMessage'] ? Colors.black : Colors.white, // 사용자가 보낸 메시지의 글자 색상을 검은색으로 변경
+                    ),
+                   ),
+                ),
               ],
             ),
           );

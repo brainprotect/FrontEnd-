@@ -10,6 +10,12 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  TextEditingController _systolicBloodPressureController = TextEditingController();
+  TextEditingController _fastingBloodSugarController = TextEditingController();
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,9 +39,15 @@ class _InputPageState extends State<InputPage> {
             TextFormField(decoration: const InputDecoration(labelText: '시력(우)')),
             TextFormField(decoration: const InputDecoration(labelText: '청력(좌)')),
             TextFormField(decoration: const InputDecoration(labelText: '청력(우)')),
-            TextFormField(decoration: const InputDecoration(labelText: '수축기 혈압')),
+            TextFormField(
+              controller: _systolicBloodPressureController,
+              decoration: const InputDecoration(labelText: '수축기 혈압'),
+            ),
             TextFormField(decoration: const InputDecoration(labelText: '이완기 혈압')),
-            TextFormField(decoration: const InputDecoration(labelText: '식전혈당(공복혈당)')),
+            TextFormField(
+              controller: _fastingBloodSugarController,
+              decoration: const InputDecoration(labelText: '식전 혈당'),
+            ),
             TextFormField(decoration: const InputDecoration(labelText: '총 콜레스테롤')),
             TextFormField(decoration: const InputDecoration(labelText: '트리글리세라이드')),
             TextFormField(decoration: const InputDecoration(labelText: '콜레스테롤(HDL)')),
@@ -66,7 +78,12 @@ class _InputPageState extends State<InputPage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const ResultPage()),
+                  MaterialPageRoute(
+                    builder: (context) => ResultPage(
+                      systolicBloodPressure: _systolicBloodPressureController.text,
+                      fastingBloodSugar: _fastingBloodSugarController.text,
+                    ),
+                  ),
                 );
               },
               child: const Text('결과보기'),

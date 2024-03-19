@@ -1,7 +1,10 @@
+import 'package:brain/MyHomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:brain/InputPage.dart';
 import 'package:brain/GetInformation.dart';
 import 'CameraPage.dart';
+import 'MyHomePage.dart';
+
 
 class ChoicePage extends StatelessWidget {
   const ChoicePage({Key? key}) : super(key: key);
@@ -9,8 +12,22 @@ class ChoicePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
-        title: const Text('위험군 페이지'),
+        backgroundColor: Color(0xFF1C2541),
+        title: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const MyHomePage()), // 홈 화면으로 이동하는 페이지로 변경
+            );
+          },
+          child: Text(
+            'BRAINPROTECT', // AppBar에 BRAINPROTECT 텍스트 추가
+            style: TextStyle(color: Color(0xFFACD0EF)), // 텍스트 색상을 Color(0xFFACD0EF)로 설정
+          ),
+        ),
+        centerTitle: true,
       ),
       body: Center(
         child: Column(

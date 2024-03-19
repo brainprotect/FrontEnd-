@@ -3,6 +3,7 @@ import 'package:brain/ChatBotPage.dart';
 import 'package:brain/ChoicePage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'MyHomePage.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({Key? key}) : super(key: key);
@@ -63,26 +64,20 @@ class _MapPageState extends State<MapPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center, // 제목을 가운데 정렬합니다.
-          children: [
-            IconButton(
-              icon: Image.asset('MainLogo.png'), // 로고 이미지
-              onPressed: () {
-                // 로고를 클릭했을 때 실행될 동작
-                Navigator.of(context).popUntil((route) => route.isFirst);
-              },
-            ),
-          ],
-        ),
-        actions: <Widget>[
-          IconButton(
-            icon: Image.asset('UserIcon.png'), // 사용자 아이콘 이미지
-            onPressed: () {
-              // 사용자 아이콘을 클릭했을 때 실행될 동작을 여기에 작성합니다.
-            },
+        backgroundColor: Color(0xFF1C2541),
+        title: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const MyHomePage()), // 홈 화면으로 이동하는 페이지로 변경
+            );
+          },
+          child: Text(
+            'BRAINPROTECT', // AppBar에 BRAINPROTECT 텍스트 추가
+            style: TextStyle(color: Color(0xFFACD0EF)), // 텍스트 색상을 Color(0xFFACD0EF)로 설정
           ),
-        ],
+        ),
+        centerTitle: true,
       ),
       body: GoogleMap(
         onMapCreated: _onMapCreated,
