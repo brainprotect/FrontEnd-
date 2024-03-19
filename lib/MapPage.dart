@@ -88,24 +88,25 @@ class _MapPageState extends State<MapPage> {
         markers: _markers,
       ),
       bottomNavigationBar:BottomNavigationBar(
+        backgroundColor: Color(0xFF1C2541),
         type: BottomNavigationBarType.fixed, // 아이템들이 동일한 공간을 차지하도록 설정
-        selectedItemColor: Colors.black, // 선택된 아이템의 색상을 검정으로 설정
-        unselectedItemColor: Colors.black, // 선택되지 않은 아이템의 색상을 검정으로 설정
+        selectedItemColor: Colors.white, // 선택된 아이템의 색상을 검정으로 설정
+        unselectedItemColor: Colors.white, // 선택되지 않은 아이템의 색상을 검정으로 설정
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('mapIcon.png'), color: Colors.black),
+            icon: ImageIcon(AssetImage('mapIcon.png'), color: Colors.white),
             label: '지도',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('TestIcon.png'), color: Colors.black),
+            icon: ImageIcon(AssetImage('TestIcon.png'), color: Colors.white),
             label: '뇌동맥 판단',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('CommunityIcon.png'), color: Colors.black),
+            icon: ImageIcon(AssetImage('CommunityIcon.png'), color: Colors.white),
             label: '커뮤니티',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('ChatBotIcon.png'), color: Colors.black),
+            icon: ImageIcon(AssetImage('ChatBotIcon.png'), color: Colors.white),
             label: '챗봇',
           ),
         ],
