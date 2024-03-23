@@ -4,6 +4,8 @@ import 'package:brain/ChoicePage.dart';
 import 'package:brain/ChatBotPage.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
+import 'Pop-upPage.dart';
+
 class HoverImage extends StatefulWidget {
   //이미지에 마우스를 올렸을 경우
   final String imagePath;
@@ -249,9 +251,12 @@ class MyHomePage extends StatelessWidget {
               );
               break;
             case 1:
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const ChoicePage()),
+            // 뇌동맥 판단 버튼을 눌렀을 때 동작
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return BrainAssessmentPopup();
+                },
               );
               break;
             case 2:

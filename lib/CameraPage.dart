@@ -13,8 +13,8 @@ class CameraPage extends StatefulWidget {
 class _CameraPageState extends State<CameraPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final List<Uint8List> _userImages = [];
-  final ScrollController _scrollController = ScrollController();
 
+  // 이미지를 가져오는 함수
   Future<void> _pickImage(ImageSource source) async {
     final pickedFile = await ImagePicker().pickImage(source: source);
     if (pickedFile != null) {
@@ -35,65 +35,104 @@ class _CameraPageState extends State<CameraPage> {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const MyHomePage()), // 홈 화면으로 이동하는 페이지로 변경
+              MaterialPageRoute(builder: (context) => const MyHomePage()),
             );
           },
           child: Text(
-            'BRAINPROTECT', // AppBar에 BRAINPROTECT 텍스트 추가
-            style: TextStyle(color: Color(0xFFACD0EF)), // 텍스트 색상을 Color(0xFFACD0EF)로 설정
+            'BRAINPROTECT',
+            style: TextStyle(color: Color(0xFFACD0EF)),
           ),
         ),
         centerTitle: true,
       ),
-      body: Container(
-        padding: EdgeInsets.all(20.0),
-        color: Colors.white, // 배경색을 흰색으로 설정
+      body: Center(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Expanded(
-              child: SingleChildScrollView(
-                controller: _scrollController,
-                child: Column(
-                  children: [
-                    _userImages.isEmpty
-                        ? Center(child: Text("No image selected."))
-                        : Wrap(
-                      spacing: 8.0,
-                      runSpacing: 4.0,
-                      children: _userImages.map((bytes) => ClipRRect(
-                        borderRadius: BorderRadius.circular(8),
-                        child: Image.memory(bytes, width: 550, height: 550, fit: BoxFit.cover),
-                      )).toList(),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ElevatedButton.icon(
-                  icon: Icon(Icons.camera),
-                  label: Text("카메라"),
-                  onPressed: () => _pickImage(ImageSource.camera),
+                // 촬영하기 버튼
+                Column(
+                  children: [
+                    SizedBox(height: 20),
+                    ElevatedButton(
+                      onPressed: () => _pickImage(ImageSource.camera),
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        fixedSize: Size(200, 300),
+                        primary: Colors.grey[300], // 밝은 회색 배경색
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          // 카메라 아이콘
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 0.0),
+                            child: Image.asset(
+                              'assets/img_camera2.png', // 이미지 파일 경로
+                              width: 250,
+                              height: 250,
+                            ),
+                          ),
+                          // 버튼 텍스트
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 25.0),
+                            child: Text(
+                              "촬영하기",
+                              style: TextStyle(fontSize: 15, color: Colors.white),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-                SizedBox(width: 10),
-                ElevatedButton.icon(
-                  icon: Icon(Icons.photo_library),
-                  label: Text("갤러리"),
-                  onPressed: () => _pickImage(ImageSource.gallery),
+                SizedBox(width: 20), // 버튼 사이 간격 조절
+                // 이미지 제출하기 버튼
+                Column(
+                  children: [
+                    SizedBox(height: 20),
+                    ElevatedButton(
+                      onPressed: () => _pickImage(ImageSource.gallery),
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        fixedSize: Size(200, 300),
+                        primary: Colors.grey[300], // 밝은 회색 배경색
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          // 갤러리 아이콘
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 0.0),
+                            child: Image.asset(
+                              'assets/img_gallery2.png', // 이미지 파일 경로
+                              width: 250,
+                              height: 250,
+                            ),
+                          ),
+                          // 버튼 텍스트
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 25.0),
+                            child: Text(
+                              "이미지 제출하기",
+                              style: TextStyle(fontSize: 15, color: Colors.white),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+            SizedBox(height: 45),
+            // "다음 단계로" 버튼
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -101,10 +140,24 @@ class _CameraPageState extends State<CameraPage> {
                   MaterialPageRoute(builder: (context) => InputPage()),
                 );
               },
-              child: const Text('다음 단계로'),
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                padding: EdgeInsets.symmetric(horizontal: 150, vertical: 20), // 버튼 크기 조절
+                primary: Colors.grey[300], // 밝은 회색 배경색
+              ),
+              child: Text(
+                '다음 단계로',
+                style: TextStyle(color: Colors.white), // 흰색 글자색
+              ),
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: Color(0xFF1C2541), // 하단 앱바 배경색
+        child: SizedBox(height: 50), // 높이 조절
       ),
     );
   }
