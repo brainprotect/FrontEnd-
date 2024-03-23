@@ -14,6 +14,10 @@ class _CameraPageState extends State<CameraPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final List<Uint8List> _userImages = [];
 
+  Color? cameraButtonColor = Colors.grey[300];
+  Color? galleryButtonColor = Colors.grey[300];
+  Color? nextButtonColor = Colors.grey[300];
+
   // 이미지를 가져오는 함수
   Future<void> _pickImage(ImageSource source) async {
     final pickedFile = await ImagePicker().pickImage(source: source);
@@ -63,8 +67,13 @@ class _CameraPageState extends State<CameraPage> {
                           borderRadius: BorderRadius.circular(20),
                         ),
                         fixedSize: Size(200, 300),
-                        primary: Colors.grey[300], // 밝은 회색 배경색
+                        primary: cameraButtonColor,
                       ),
+                      onHover: (isHovering) {
+                        setState(() {
+                          cameraButtonColor = isHovering ? Colors.blue : Colors.grey[300];
+                        });
+                      },
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
@@ -102,8 +111,13 @@ class _CameraPageState extends State<CameraPage> {
                           borderRadius: BorderRadius.circular(20),
                         ),
                         fixedSize: Size(200, 300),
-                        primary: Colors.grey[300], // 밝은 회색 배경색
+                        primary: galleryButtonColor,
                       ),
+                      onHover: (isHovering) {
+                        setState(() {
+                          galleryButtonColor = isHovering ? Colors.blue : Colors.grey[300];
+                        });
+                      },
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
@@ -145,8 +159,13 @@ class _CameraPageState extends State<CameraPage> {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 padding: EdgeInsets.symmetric(horizontal: 150, vertical: 20), // 버튼 크기 조절
-                primary: Colors.grey[300], // 밝은 회색 배경색
+                primary: nextButtonColor,
               ),
+              onHover: (isHovering) {
+                setState(() {
+                  nextButtonColor = isHovering ? Colors.blue : Colors.grey[300];
+                });
+              },
               child: Text(
                 '다음 단계로',
                 style: TextStyle(color: Colors.white), // 흰색 글자색

@@ -147,7 +147,7 @@ class _BrainAssessmentPopupState extends State<BrainAssessmentPopup> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => InputPage()),
+                MaterialPageRoute(builder: (context) => ChoicePage()),
               );
             },
             style: ElevatedButton.styleFrom(
