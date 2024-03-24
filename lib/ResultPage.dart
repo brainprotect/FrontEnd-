@@ -4,6 +4,7 @@ import 'package:brain/MapPage.dart';
 
 import 'ChatBotPage.dart';
 import 'ChoicePage.dart';
+import 'MyHomePage.dart';
 
 class ResultPage extends StatefulWidget {
   final String? systolicBloodPressure;
@@ -24,25 +25,20 @@ class _ResultPageState extends State<ResultPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            IconButton(
-              icon: Image.asset('MainLogo.png'),
-              onPressed: () {
-                Navigator.of(context).popUntil((route) => route.isFirst);
-              },
-            ),
-          ],
-        ),
-        actions: <Widget>[
-          IconButton(
-            icon: Image.asset('UserIcon.png'),
-            onPressed: () {
-              // Add functionality for user icon tap
-            },
+        backgroundColor: Color(0xFF1C2541),
+        title: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const MyHomePage()), // 홈 화면으로 이동하는 페이지로 변경
+            );
+          },
+          child: Text(
+            'BRAINPROTECT', // AppBar에 BRAINPROTECT 텍스트 추가
+            style: TextStyle(color: Color(0xFFACD0EF)), // 텍스트 색상을 Color(0xFFACD0EF)로 설정
           ),
-        ],
+        ),
+        centerTitle: true,
       ),
       body: Center(
         child: Column(
@@ -58,25 +54,26 @@ class _ResultPageState extends State<ResultPage> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.black,
+        backgroundColor: Color(0xFF1C2541),
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('mapIcon.png'), color: Colors.black),
+            icon: ImageIcon(AssetImage('mapIcon.png'), color: Colors.white),
             label: '지도',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('TestIcon.png'), color: Colors.black),
+            icon: ImageIcon(AssetImage('TestIcon.png'), color: Colors.white),
             label: '뇌동맥 판단',
           ),
           BottomNavigationBarItem(
             icon: ImageIcon(
-                AssetImage('CommunityIcon.png'), color: Colors.black),
+                AssetImage('CommunityIcon.png'), color: Colors.white),
             label: '커뮤니티',
           ),
           BottomNavigationBarItem(
             icon: ImageIcon(
-                AssetImage('ChatBotIcon.png'), color: Colors.black),
+                AssetImage('ChatBotIcon.png'), color: Colors.white),
             label: '챗봇',
           ),
         ],
@@ -135,7 +132,7 @@ class _ResultSectionState extends State<ResultSection> {
     super.initState();
     _setBloodSugarIcon();
     _setBloodPressureIcon();
-    _setOverallStatus();
+   // _setOverallStatus();
     overallMessage='';
     overallIcon=Icons.warning;
   }
@@ -180,49 +177,49 @@ class _ResultSectionState extends State<ResultSection> {
     }
   }
 
-
-  void _setOverallStatus() {
-    final fastingBloodSugar = widget.fastingBloodSugar;
-    final systolicBloodPressure = widget.systolicBloodPressure;
-
-    if (fastingBloodSugar != null && systolicBloodPressure != null) {
-      final fastingBloodSugarValue = double.tryParse(fastingBloodSugar);
-      final systolicBloodPressureValue = double.tryParse(systolicBloodPressure);
-      print(fastingBloodSugar);
-      print(systolicBloodPressure);
-
-      if (fastingBloodSugarValue != null && systolicBloodPressureValue != null) {
-        print(fastingBloodSugar);
-        print(systolicBloodPressure);
-        if (fastingBloodSugarValue >= 126 &&
-            systolicBloodPressureValue >= 140) {
-          setState(() {
-            overallIcon = Icons.warning;
-            overallMessage = '뇌동맥 파열 위험이 매우 높습니다.';
-          });
-          print("매우 위험");
-        } else if ((fastingBloodSugarValue >= 100 && fastingBloodSugarValue <= 125) ||
-            (systolicBloodPressureValue >= 120 &&
-                systolicBloodPressureValue < 140)) {
-          setState(() {
-            overallIcon = Icons.error;
-            overallMessage = '뇌동맥 파열 위험이 높습니다.';
-          });
-        } else if (fastingBloodSugarValue > 99 || systolicBloodPressureValue >= 120) {
-          setState(() {
-            overallIcon = Icons.error;
-            overallMessage = '뇌동맥 파열 위험이 있습니다.';
-          });
-        } else {
-          setState(() {
-            overallIcon = Icons.check_circle;
-            overallMessage = '뇌동맥 파열 위험이 없습니다.';
-          });
-        }
-      }
-    }
-  }
-
+  //
+  // void _setOverallStatus() {
+  //   final fastingBloodSugar = widget.fastingBloodSugar;
+  //   final systolicBloodPressure = widget.systolicBloodPressure;
+  //
+  //   if (fastingBloodSugar != null && systolicBloodPressure != null) {
+  //     final fastingBloodSugarValue = double.tryParse(fastingBloodSugar);
+  //     final systolicBloodPressureValue = double.tryParse(systolicBloodPressure);
+  //     print(fastingBloodSugar);
+  //     print(systolicBloodPressure);
+  //
+  //     if (fastingBloodSugarValue != null && systolicBloodPressureValue != null) {
+  //       print(fastingBloodSugar);
+  //       print(systolicBloodPressure);
+  //       if (fastingBloodSugarValue >= 126 &&
+  //           systolicBloodPressureValue >= 140) {
+  //         setState(() {
+  //           overallIcon = Icons.warning;
+  //           overallMessage = '뇌동맥 파열 위험이 매우 높습니다.';
+  //         });
+  //         print("매우 위험");
+  //       } else if ((fastingBloodSugarValue >= 100 && fastingBloodSugarValue <= 125) ||
+  //           (systolicBloodPressureValue >= 120 &&
+  //               systolicBloodPressureValue < 140)) {
+  //         setState(() {
+  //           overallIcon = Icons.error;
+  //           overallMessage = '뇌동맥 파열 위험이 높습니다.';
+  //         });
+  //       } else if (fastingBloodSugarValue > 99 || systolicBloodPressureValue >= 120) {
+  //         setState(() {
+  //           overallIcon = Icons.error;
+  //           overallMessage = '뇌동맥 파열 위험이 있습니다.';
+  //         });
+  //       } else {
+  //         setState(() {
+  //           overallIcon = Icons.check_circle;
+  //           overallMessage = '뇌동맥 파열 위험이 없습니다.';
+  //         });
+  //       }
+  //     }
+  //   }
+  // }
+  //
 
 
   @override
@@ -274,16 +271,66 @@ class _ResultSectionState extends State<ResultSection> {
   }
 
   List<Widget> _getDescriptionWidgets() {
-    switch (widget.title) {
-      case '뇌동맥 위험도 측정 결과':
-        print(overallMessage);
-        return [
-          _buildDescriptionWithIcon(
-            context,
-            overallMessage ?? '뇌동맥 파열 위험을 평가할 수 없습니다.', // 기본값 설정
-            overallIcon ?? Icons.warning, // 기본값 설정
-          ),
-        ];
+    // switch (widget.title) {
+    //   case '뇌동맥 위험도 측정 결과':
+    //     print(overallMessage);
+    //     return [
+    //       _buildDescriptionWithIcon(
+    //         context,
+    //         overallMessage ?? '뇌동맥 파열 위험을 평가할 수 없습니다.', // 기본값 설정
+    //         overallIcon ?? Icons.warning, // 기본값 설정
+    //       ),
+    //     ];
+        switch (widget.title) {
+          case '뇌동맥 위험도 측정 결과':
+            String overallMessage = '왜 안되는거지...';
+            IconData overallIcon = Icons.warning;
+
+            final fastingBloodSugar = widget.fastingBloodSugar;
+            final systolicBloodPressure = widget.systolicBloodPressure;
+            if (fastingBloodSugar != null && systolicBloodPressure != null) {
+              final fastingBloodSugarValue = double.tryParse(fastingBloodSugar);
+              final systolicBloodPressureValue = double.tryParse(systolicBloodPressure);
+              print(fastingBloodSugar);
+              print(systolicBloodPressure);
+              if (fastingBloodSugarValue != null && systolicBloodPressureValue != null) {
+                print(fastingBloodSugar);
+                print(systolicBloodPressure);
+                if (fastingBloodSugarValue >= 126 &&
+                    systolicBloodPressureValue >= 140) {
+                  setState(() {
+                    print("매우 위험");
+                    overallIcon = Icons.warning;
+                    overallMessage = '뇌동맥 파열 위험이 매우 높습니다.';
+                  });
+                  print("매우 위험");
+                } else if ((fastingBloodSugarValue >= 100 && fastingBloodSugarValue <= 125) ||
+                    (systolicBloodPressureValue >= 120 &&
+                        systolicBloodPressureValue < 140)) {
+                  setState(() {
+                    overallIcon = Icons.error;
+                    overallMessage = '뇌동맥 파열 위험이 높습니다.';
+                  });
+                } else if (fastingBloodSugarValue > 99 || systolicBloodPressureValue >= 120) {
+                  setState(() {
+                    overallIcon = Icons.error;
+                    overallMessage = '뇌동맥 파열 위험이 있습니다.';
+                  });
+                } else {
+                  setState(() {
+                    overallIcon = Icons.check_circle;
+                    overallMessage = '뇌동맥 파열 위험이 없습니다.';
+                  });
+                }
+              }
+            }
+            return [
+              _buildDescriptionWithIcon(
+                context,
+                overallMessage ?? '뇌동맥 파열 위험을 평가할 수 없습니다.', // 기본값 설정
+                overallIcon ?? Icons.warning, // 기본값 설정
+              ),
+            ];
       case '위험도에 따른 솔루션 안내':
         return [
           const Text(
