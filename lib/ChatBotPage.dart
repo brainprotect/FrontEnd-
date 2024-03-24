@@ -11,7 +11,7 @@ class ChatBotPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: '뇌동맥류Bot',
-      theme: ThemeData(brightness: Brightness.dark),
+      //theme: ThemeData(brightness: Brightness.dark),
       home: Home(),
     );
   }
