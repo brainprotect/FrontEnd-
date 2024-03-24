@@ -29,15 +29,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
   carousel_slider: ^4.0.0 #캐러셀 추가
   image_picker: ^0.8.4+4 # 이미지 피커 추가
   http: ^0.13.3 #건강검진 api를 가져오기 위한 http 패키지
-
-#  flutter_naver_map: ^1.1.2
-#  naver_map_plugin: ^0.9.6
-#  flutter_naver_map_sdk: ^1.1.1
-
 
 
   # The following adds the Cupertino Icons font to your application.

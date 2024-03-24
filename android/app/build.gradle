@@ -1,3 +1,4 @@
+// local.properties 파일에서 flutter.sdk, flutter.versionCode, flutter.versionName 값을 읽어옵니다.
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
@@ -5,28 +6,33 @@ if (localPropertiesFile.exists()) {
         localProperties.load(reader)
     }
 }
-
+// flutter.sdk 값이 설정되어 있지 않으면 예외를 발생시킵니다.
 def flutterRoot = localProperties.getProperty('flutter.sdk')
 if (flutterRoot == null) {
-    throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
+    throw new RuntimeException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
 }
 
+// flutter.versionCode 값이 설정되어 있지 않으면 기본값으로 설정합니다.
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
 if (flutterVersionCode == null) {
     flutterVersionCode = '1'
 }
 
+// flutter.versionName 값이 설정되어 있지 않으면 기본값으로 설정합니다.
 def flutterVersionName = localProperties.getProperty('flutter.versionName')
 if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+// com.android.application 및 kotlin-android 플러그인을 적용합니다.
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+
+// flutter.gradle 스크립트를 적용합니다.
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    compileSdkVersion flutter.compileSdkVersion
+    compileSdkVersion 34 // 안드로이드 SDK 버전을 설정합니다.
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -37,35 +43,35 @@ android {
         jvmTarget = '1.8'
     }
 
+    // Kotlin 소스 디렉토리를 추가합니다.
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        // 애플리케이션 ID, 버전 및 SDK 버전을 설정합니다.
         applicationId "com.example.brain"
-        minSdkVersion flutter.minSdkVersion
-        targetSdkVersion flutter.targetSdkVersion
+        minSdkVersion 20
+        targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
-        minSdkVersion 20
-        targetSdkVersion 30g
-//        minSdkVersion 21
     }
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
+            // 릴리스 빌드 시 서명 설정을 추가합니다.
+            // 현재는 디버그 키로 서명되어 있습니다. 실제 릴리스에는 서명 설정이 필요합니다.
             signingConfig signingConfigs.debug
         }
     }
 }
 
+// flutter.gradle에 정의된 flutter 블록을 적용합니다.
 flutter {
-    source '../..'
+    source '../..' // Flutter 소스 디렉토리를 설정합니다.
 }
 
+// 의존성을 추가합니다.
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
