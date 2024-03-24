@@ -12,8 +12,7 @@ class _BrainAssessmentPopupState extends State<BrainAssessmentPopup> {
   bool showAdditionalQuestions = false;
   TextEditingController _additionalInfoController = TextEditingController();
 
-  // 수정된 변수
-  Color? buttonColor = Colors.grey[300];
+  Color? buttonColor = Colors.grey[300]; // 수정된 변수
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +21,6 @@ class _BrainAssessmentPopupState extends State<BrainAssessmentPopup> {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-
           IconButton(
             icon: Icon(Icons.close),
             onPressed: () {
@@ -31,7 +29,7 @@ class _BrainAssessmentPopupState extends State<BrainAssessmentPopup> {
           ),
         ],
       ),
-      content:               Container(
+      content: Container(
         decoration: BoxDecoration(
           color: Colors.white, // 폼의 배경을 흰색으로 설정
           borderRadius: BorderRadius.circular(10), // 둥근 사각형 모양으로 설정
@@ -159,7 +157,7 @@ class _BrainAssessmentPopupState extends State<BrainAssessmentPopup> {
             ),
             onHover: (isHovering) {
               setState(() {
-                buttonColor = isHovering ? Colors.blue : Colors.grey[300]; // 마우스 호버에 따라 색상 변경
+                buttonColor = isHovering ? Color(0xFF6C63FE) : Colors.grey[300]; // 마우스 호버에 따라 색상 변경
               });
             },
             child: Text(
