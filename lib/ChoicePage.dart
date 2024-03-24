@@ -64,7 +64,7 @@ class ChoicePage extends StatelessWidget {
           ),
           child: SizedBox.expand(
             child: FractionallySizedBox(
-              heightFactor: 0.6, // 부모 컨테이너 높이의 60%
+              heightFactor: 0.8, // 부모 컨테이너 높이의 80%
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white, // 배경색을 흰색으로 설정
@@ -76,7 +76,12 @@ class ChoicePage extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text("뇌동맥류 검사 방식 선택"),
+                    Text("뇌동맥류 검사 방식 선택",
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),),
                     Padding(
                       padding: const EdgeInsets.all(12.0),
                       child: ElevatedButton(
@@ -101,21 +106,21 @@ class ChoicePage extends StatelessWidget {
                               Image.asset(
                                 'choiceIcon1.png',
                               ),
-                              Text(
-                                '직접 입력',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                ),
-                              ),
+                              // Text(
+                              //   '직접 입력',
+                              //   style: TextStyle(
+                              //     fontSize: 18,
+                              //     fontWeight: FontWeight.bold,
+                              //     color: Colors.black,
+                              //   ),
+                              // ),
                             ],
                           ),
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(20.0),
+                      padding: const EdgeInsets.all(12.0),
                       child: ElevatedButton(
                         onPressed: () {
                           Navigator.push(
@@ -155,20 +160,20 @@ class ChoicePage extends StatelessWidget {
                             // Icon(Icons.camera_alt_outlined, size: 48 * 1.5, color: Colors.black),
                             const SizedBox(height: 8),
                             Image.asset('choiceIcon2.png',),
-                            Text(
-                              '촬영하기',
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black,
-                              ),
-                            ),
+                            // Text(
+                            //   '촬영하기',
+                            //   style: TextStyle(
+                            //     fontSize: 18,
+                            //     fontWeight: FontWeight.bold,
+                            //     color: Colors.black,
+                            //   ),
+                            // ),
                           ],
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(20.0),
+                      padding: const EdgeInsets.all(12.0),
                       child: ElevatedButton(
                         onPressed: () {
                           Navigator.push(
@@ -188,15 +193,15 @@ class ChoicePage extends StatelessWidget {
                             // Icon(Icons.arrow_circle_down_outlined, size: 48 * 1.5, color: Colors.black),
                             const SizedBox(height: 8),
                             Image.asset('choiceIcon3.png',),
-                            Text(
-                              '건강 정보\n불러오기',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black,
-                              ),
-                            ),
+                            // Text(
+                            //   '건강 정보\n불러오기',
+                            //   textAlign: TextAlign.center,
+                            //   style: TextStyle(
+                            //     fontSize: 18,
+                            //     fontWeight: FontWeight.bold,
+                            //     color: Colors.black,
+                            //   ),
+                            // ),
                           ],
                         ),
                       ),
