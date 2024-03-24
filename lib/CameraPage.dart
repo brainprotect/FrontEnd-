@@ -14,9 +14,9 @@ class _CameraPageState extends State<CameraPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final List<Uint8List> _userImages = [];
 
-  Color? cameraButtonColor = Colors.grey[300];
-  Color? galleryButtonColor = Colors.grey[300];
-  Color? nextButtonColor = Colors.grey[300];
+  Color? cameraButtonColor = Color(0xFFD9D9D9);
+  Color? galleryButtonColor = Color(0xFFD9D9D9);
+  Color? nextButtonColor = Color(0xFFD9D9D9);
 
   // 이미지를 가져오는 함수
   Future<void> _pickImage(ImageSource source) async {
@@ -68,10 +68,11 @@ class _CameraPageState extends State<CameraPage> {
                         ),
                         fixedSize: Size(200, 300),
                         primary: cameraButtonColor,
+                        elevation: 7, // 음영 높이 설정
                       ),
                       onHover: (isHovering) {
                         setState(() {
-                          cameraButtonColor = isHovering ? Colors.blue : Colors.grey[300];
+                          cameraButtonColor = isHovering ? Color(0xFF6C63FE) : Color(0xFFD9D9D9);
                         });
                       },
                       child: Column(
@@ -112,10 +113,11 @@ class _CameraPageState extends State<CameraPage> {
                         ),
                         fixedSize: Size(200, 300),
                         primary: galleryButtonColor,
+                        elevation: 7, // 음영 높이 설정
                       ),
                       onHover: (isHovering) {
                         setState(() {
-                          galleryButtonColor = isHovering ? Colors.blue : Colors.grey[300];
+                          galleryButtonColor = isHovering ? Color(0xFF6C63FE) : Color(0xFFD9D9D9);
                         });
                       },
                       child: Column(
@@ -160,10 +162,11 @@ class _CameraPageState extends State<CameraPage> {
                 ),
                 padding: EdgeInsets.symmetric(horizontal: 150, vertical: 20), // 버튼 크기 조절
                 primary: nextButtonColor,
+                elevation: 7, // 음영 높이 설정
               ),
               onHover: (isHovering) {
                 setState(() {
-                  nextButtonColor = isHovering ? Colors.blue : Colors.grey[300];
+                  nextButtonColor = isHovering ? Color(0xFF6C63FE) : Color(0xFFD9D9D9);
                 });
               },
               child: Text(
