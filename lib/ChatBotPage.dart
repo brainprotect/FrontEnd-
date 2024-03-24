@@ -68,7 +68,7 @@ class _HomeState extends State<Home> {
                   Expanded(
                     child: TextField(
                       controller: _controller,
-                      style: TextStyle(color: Colors.black),
+                      //style: TextStyle(color: Colors.black),
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderSide: BorderSide.none, // 텍스트 필드의 외곽선 제거
