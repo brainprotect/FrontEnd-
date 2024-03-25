@@ -167,31 +167,30 @@ class MyHomePage extends StatelessWidget {
 
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        // 아이템들이 동일한 공간을 차지하도록 설정
-        selectedItemColor: Colors.black,
-        // 선택된 아이템의 색상을 검정으로 설정
-        unselectedItemColor: Colors.black,
-        // 선택되지 않은 아이템의 색상을 검정으로 설정
+        backgroundColor: Color(0xFF1C2541),
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('mapIcon.png')),
+            icon: ImageIcon(AssetImage('mapIcon.png'), color: Colors.white),
             label: '지도',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('TestIcon.png')),
+            icon: ImageIcon(AssetImage('TestIcon.png'), color: Colors.white),
             label: '뇌동맥 판단',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('CommunityIcon.png')),
+            icon: ImageIcon(
+                AssetImage('CommunityIcon.png'), color: Colors.white),
             label: '커뮤니티',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('ChatBotIcon.png')),
+            icon: ImageIcon(
+                AssetImage('ChatBotIcon.png'), color: Colors.white),
             label: '챗봇',
           ),
         ],
         onTap: (index) {
-          // 탭에 따른 페이지 이동 로직
           switch (index) {
             case 0:
               Navigator.push(
@@ -200,21 +199,18 @@ class MyHomePage extends StatelessWidget {
               );
               break;
             case 1:
-            // 뇌동맥 판단 버튼을 눌렀을 때 동작
-              showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return BrainAssessmentPopup();
-                },
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ChoicePage()),
               );
               break;
             case 2:
-              // 커뮤니티 페이지로 이동해야 하는 경우 여기에 해당 페이지로 이동하는 코드를 추가합니다.
+            // Add navigation to community page
               break;
             case 3:
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ChatBotPage()),
+                MaterialPageRoute(builder: (context) => const ChatBotPage()),
               );
               break;
           }
