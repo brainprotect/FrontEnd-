@@ -279,7 +279,7 @@ class _ResultSectionState extends State<ResultSection> {
     //     ];
         switch (widget.title) {
           case '뇌동맥 위험도 측정 결과':
-            String overallMessage = '왜 안되는거지...';
+            String overallMessage = '뇌동맥 파열 위험이 매우 높습니다.';
             IconData overallIcon = Icons.warning;
 
             final fastingBloodSugar = widget.fastingBloodSugar;
