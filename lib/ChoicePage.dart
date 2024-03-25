@@ -91,14 +91,32 @@ class ChoicePage extends StatelessWidget {
                             MaterialPageRoute(builder: (context) => const InputPage()),
                           );
                         },
-                        style: ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.0),
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.resolveWith<Color>((states) {
+                            if (states.contains(MaterialState.hovered)) {
+                              // hover 시 배경 색
+                              return Color(0xFF6C63FE); // 6C63FE 색상
+                            } else {
+                              // hover되지 않았을 때의 배경 색
+                              return Color(0xFFD9D9D9); // D9D9D9 색상
+                            }
+                          }),
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
                           ),
-                          padding: EdgeInsets.zero, // Padding 제거
-                          backgroundColor: Color(0xFFD9D9D9),
-                          shadowColor: Colors.black.withOpacity(0.25), // 드롭 쉐도우 색상
-                          elevation: 4, // 드롭 쉐도우 높이
+                          padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+                            const EdgeInsets.all(12.0),
+                          ),
+                          overlayColor: MaterialStateProperty.resolveWith<Color>((states) {
+                            if (states.contains(MaterialState.hovered)) {
+                              // hover 시 오버레이 색 (일반적으로 투명도를 줄여서 사용)
+                              return Colors.transparent.withOpacity(0.1);
+                            } else {
+                              return Colors.transparent; // hover되지 않았을 때의 오버레이 색
+                            }
+                          }),
                         ),
                         child: Container( // 이미지와 텍스트를 감싸는 컨테이너 추가
                           child: Column(
@@ -181,12 +199,32 @@ class ChoicePage extends StatelessWidget {
                             MaterialPageRoute(builder: (context) => const GetInformation()),
                           );
                         },
-                        style: ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.0),
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.resolveWith<Color>((states) {
+                            if (states.contains(MaterialState.hovered)) {
+                              // hover 시 배경 색
+                              return Color(0xFF6C63FE); // 6C63FE 색상
+                            } else {
+                              // hover되지 않았을 때의 배경 색
+                              return Color(0xFFD9D9D9); // D9D9D9 색상
+                            }
+                          }),
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
                           ),
-                          padding: const EdgeInsets.all(12.0),
-                          backgroundColor: Color(0xFFD9D9D9),
+                          padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+                            const EdgeInsets.all(12.0),
+                          ),
+                          overlayColor: MaterialStateProperty.resolveWith<Color>((states) {
+                            if (states.contains(MaterialState.hovered)) {
+                              // hover 시 오버레이 색 (일반적으로 투명도를 줄여서 사용)
+                              return Colors.transparent.withOpacity(0.1);
+                            } else {
+                              return Colors.transparent; // hover되지 않았을 때의 오버레이 색
+                            }
+                          }),
                         ),
                         child: Column(
                           children: [
