@@ -3,6 +3,7 @@ import 'package:brain/ChatBotPage.dart';
 import 'package:brain/ChoicePage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:flutter/material.dart';
 import 'MyHomePage.dart';
 
 class MapPage extends StatefulWidget {
@@ -15,8 +16,6 @@ class MapPage extends StatefulWidget {
 class _MapPageState extends State<MapPage> {
   late GoogleMapController mapController;
   final LatLng _center = const LatLng(37.272149, 127.108282); // 센터 위도 경도
-
-
   // Define a Set to hold the markers
   Set<Marker> _markers = {};
 
