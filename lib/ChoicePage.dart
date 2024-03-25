@@ -94,23 +94,23 @@ class ChoicePage extends StatelessWidget {
     );
     },
     style: ButtonStyle(
-    backgroundColor: MaterialStateProperty.resolveWith<Color>((states) {
-    if (states.contains(MaterialState.hovered)) {
-    // hover 시 배경 색
-    return Color(0xFF6C63FE); // 6C63FE 색상
-    } else {
-    // hover되지 않았을 때의 배경 색
-    return Color(0xFFD9D9D9); // D9D9D9 색상
-    }
-    }),
+      backgroundColor: MaterialStateProperty.resolveWith<Color>((states) {
+        if (states.contains(MaterialState.pressed)) {
+          // 클릭 시 배경 색
+          return Color(0xFF6C63FE); // 클릭 시 색상
+        } else {
+          // 클릭되지 않았을 때의 배경 색
+          return Color(0xFFD9D9D9); // 클릭되지 않은 상태의 색상
+        }
+      }),
     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
     RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(15.0),
     ),
     ),
-    padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-    const EdgeInsets.all(12.0),
-    ),
+      padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+        EdgeInsets.fromLTRB(20.0, 12.0, 20.0, 12.0),
+      ),
     overlayColor: MaterialStateProperty.resolveWith<Color>((states) {
     if (states.contains(MaterialState.hovered)) {
     // hover 시 오버레이 색 (일반적으로 투명도를 줄여서 사용)
@@ -126,8 +126,8 @@ class ChoicePage extends StatelessWidget {
     children: [
     Image.asset(
     'assets/choiceIcon1.png',
-    width: 40, // 이미지의 너비 설정
-    height: 40, // 이미지의 높이 설정
+    width: 60, // 이미지의 너비 설정
+    height: 60, // 이미지의 높이 설정
     ),
     ],
     ),
@@ -154,23 +154,23 @@ class ChoicePage extends StatelessWidget {
     );
     },
     style: ButtonStyle(
-    backgroundColor: MaterialStateProperty.resolveWith<Color>((states) {
-    if (states.contains(MaterialState.hovered)) {
-    // hover 시 배경 색
-    return Color(0xFF6C63FE); // 6C63FE 색상
-    } else {
-    // hover되지 않았을 때의 배경 색
-    return Color(0xFFD9D9D9); // D9D9D9 색상
-    }
-    }),
+      backgroundColor: MaterialStateProperty.resolveWith<Color>((states) {
+        if (states.contains(MaterialState.pressed)) {
+          // 클릭 시 배경 색
+          return Color(0xFF6C63FE); // 클릭 시 색상
+        } else {
+          // 클릭되지 않았을 때의 배경 색
+          return Color(0xFFD9D9D9); // 클릭되지 않은 상태의 색상
+        }
+      }),
     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
     RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(15.0),
     ),
     ),
-    padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-    const EdgeInsets.all(12.0),
-    ),
+      padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+        EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 20.0),
+      ),
     overlayColor: MaterialStateProperty.resolveWith<Color>((states) {
     if (states.contains(MaterialState.hovered)) {
     // hover 시 오버레이 색 (일반적으로 투명도를 줄여서 사용)
@@ -187,8 +187,8 @@ class ChoicePage extends StatelessWidget {
             children: [
               Image.asset(
                 'assets/choiceIcon2.png',
-                width: 40, // 이미지의 너비 설정
-                height: 40, // 이미지의 높이 설정
+                width: 50, // 이미지의 너비 설정
+                height: 50, // 이미지의 높이 설정
               ),
             ],
           ),
@@ -211,12 +211,12 @@ class ChoicePage extends StatelessWidget {
           onPressed: () {},
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.resolveWith<Color>((states) {
-              if (states.contains(MaterialState.hovered)) {
-                // hover 시 배경 색
-                return Color(0xFF6C63FE); // 6C63FE 색상
+              if (states.contains(MaterialState.pressed)) {
+                // 클릭 시 배경 색
+                return Color(0xFF6C63FE); // 클릭 시 색상
               } else {
-                // hover되지 않았을 때의 배경 색
-                return Color(0xFFD9D9D9); // D9D9D9 색상
+                // 클릭되지 않았을 때의 배경 색
+                return Color(0xFFD9D9D9); // 클릭되지 않은 상태의 색상
               }
             }),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -225,7 +225,7 @@ class ChoicePage extends StatelessWidget {
               ),
             ),
             padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-              const EdgeInsets.all(12.0),
+              EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 20.0),
             ),
             overlayColor: MaterialStateProperty.resolveWith<Color>((states) {
               if (states.contains(MaterialState.hovered)) {

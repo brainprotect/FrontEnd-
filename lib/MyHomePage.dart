@@ -197,11 +197,15 @@ class MyHomePage extends StatelessWidget {
               );
               break;
             case 1:
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const ChoicePage()),
+            // 뇌동맥 판단 버튼을 눌렀을 때 동작
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return BrainAssessmentPopup();
+                },
               );
               break;
+
             case 2:
             // 커뮤니티 페이지로 이동해야 하는 경우 여기에 해당 페이지로 이동하는 코드를 추가합니다.
               break;

@@ -31,7 +31,7 @@ class _StartScreenState extends State<StartScreen> {
           ),
         ),
         child: Center(
-          child: Image.asset('LoadingIcon.png'),
+          child: Image.asset('assets/LoadingIcon.png'), // 이미지 경로 수정
         ),
       ),
     );
