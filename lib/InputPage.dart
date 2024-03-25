@@ -158,7 +158,7 @@ class _InputPageState extends State<InputPage> {
               MaterialPageRoute(builder: (context) => const MyHomePage()),
             );
           },
-          child: Image.asset('../assets/HeaderLogo.png'),
+          child: Image.asset('assets/HeaderLogo.png'), // 이미지 경로 수정
         ),
         centerTitle: true,
       ),

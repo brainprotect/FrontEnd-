@@ -33,7 +33,7 @@ class _ResultPageState extends State<ResultPage> {
               MaterialPageRoute(builder: (context) => const MyHomePage()),
             );
           },
-          child: Image.asset('../assets/HeaderLogo.png'),
+          child: Image.asset('assets/HeaderLogo.png'), // 이미지 경로 수정
         ),
         centerTitle: true,
       ),
@@ -50,31 +50,30 @@ class _ResultPageState extends State<ResultPage> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
         backgroundColor: Color(0xFF1C2541),
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white,
+        type: BottomNavigationBarType.fixed, // 아이템들이 동일한 공간을 차지하도록 설정
+        selectedItemColor: Colors.white, // 선택된 아이템의 색상을 검정으로 설정
+        unselectedItemColor: Colors.white, // 선택되지 않은 아이템의 색상을 검정으로 설정
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('mapIcon.png'), color: Colors.white),
+            icon: ImageIcon(AssetImage('assets/mapIcon.png'), color: Colors.white), // 이미지 경로 수정
             label: '지도',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('TestIcon.png'), color: Colors.white),
+            icon: ImageIcon(AssetImage('assets/TestIcon.png'), color: Colors.white), // 이미지 경로 수정
             label: '뇌동맥 판단',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(
-                AssetImage('CommunityIcon.png'), color: Colors.white),
+            icon: ImageIcon(AssetImage('assets/CommunityIcon.png'), color: Colors.white), // 이미지 경로 수정
             label: '커뮤니티',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(
-                AssetImage('ChatBotIcon.png'), color: Colors.white),
+            icon: ImageIcon(AssetImage('assets/ChatBotIcon.png'), color: Colors.white), // 이미지 경로 수정
             label: '챗봇',
           ),
         ],
         onTap: (index) {
+          // 탭에 따른 페이지 이동 로직
           switch (index) {
             case 0:
               Navigator.push(
@@ -89,7 +88,7 @@ class _ResultPageState extends State<ResultPage> {
               );
               break;
             case 2:
-            // Add navigation to community page
+            // 커뮤니티 페이지로 이동해야 하는 경우 여기에 해당 페이지로 이동하는 코드를 추가합니다.
               break;
             case 3:
               Navigator.push(
