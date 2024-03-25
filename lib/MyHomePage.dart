@@ -81,7 +81,7 @@ class MyHomePage extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 50.0, bottom: 40.0),
+                padding: const EdgeInsets.only(top: 50.0, bottom: 30.0),
                 // 위아래 마진 부여
                 child: CarouselSlider(
                   options: CarouselOptions(
@@ -136,133 +136,7 @@ class MyHomePage extends StatelessWidget {
                 }).toList(),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 50.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "오늘의 퀴즈",
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20.0,
-                  ),
-                  Container(
-                    width: 380,
-                    height: 180,
-                    margin: EdgeInsets.only(bottom: 20.0),
-                    decoration: BoxDecoration(
-                      color: Color(0xFFD9D9D9),
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          '뇌동맥류란?',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        SizedBox(height: 10),
-                        GestureDetector(
-                          child: Text(
-                            '뇌정맥의 특정 부위가 꽈리나 풍선처럼 \n  부풀어 오른 뇌질환을 뇌동맥류라고 합니다.',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 20,
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 5),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                showDialog(
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    Future.delayed(Duration(seconds: 1), () {
-                                      Navigator.of(context).pop(true);
-                                    });
-                                    return AlertDialog(
-                                      title: Text('정답입니다.'),
-                                    );
-                                  },
-                                );
-                              },
-                              child: Container(
-                                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10), // 텍스트 여백 조정
-                                decoration: BoxDecoration(
-                                  color: Colors.transparent, // 투명한 배경색
-                                  border: Border.all(color: Colors.transparent), // 테두리 제거
-                                ),
-                                child: Text(
-                                  'O',
-                                  style: TextStyle(
-                                    fontSize: 35, // 텍스트 크기 조정
-                                    color: Colors.black, // 텍스트 색상 지정
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 20),
-                            InkWell(
-                              onTap: () {
-                                showDialog(
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    Future.delayed(Duration(seconds: 1), () {
-                                      Navigator.of(context).pop(true);
-                                    });
-                                    return AlertDialog(
-                                      title: Text('다시 한번 생각해보세요.'),
-                                    );
-                                  },
-                                );
-                              },
-                              child: Container(
-                                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10), // 텍스트 여백 조정
-                                decoration: BoxDecoration(
-                                  color: Colors.transparent, // 투명한 배경색
-                                  border: Border.all(color: Colors.transparent), // 테두리 제거
-                                ),
-                                child: Text(
-                                  'X',
-                                  style: TextStyle(
-                                    fontSize: 35, // 텍스트 크기 조정
-                                    color: Colors.black, // 텍스트 색상 지정
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
 
-                ],
-              ),
-            ),
-
-
-            Padding(
-              padding: const EdgeInsets.only(bottom: 20.0),
-              child: Container(
-                width: 380,
-                height: 220,
-                margin: EdgeInsets.only(bottom: 20.0),
-                decoration: BoxDecoration(
-                  color: Color(0xFFD9D9D9),
-                  borderRadius: BorderRadius.circular(30),
-                ),
-              ),
-            ),
               Padding(
                 padding: const EdgeInsets.symmetric(
                     horizontal: 20.0, vertical: 50.0),
@@ -278,15 +152,99 @@ class MyHomePage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 20.0,
+                      height: 30.0,
                     ),
                     Container(
                       width: 380,
-                      height: 180,
+                      height: 200,
                       margin: EdgeInsets.only(bottom: 20.0),
                       decoration: BoxDecoration(
                         color: Color(0xFFD9D9D9),
                         borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            '뇌동맥류란?',
+                            style: TextStyle(fontSize: 20),
+                          ),
+                          SizedBox(height: 10),
+                          GestureDetector(
+                            child: Text(
+                              '뇌정맥의 특정 부위가 꽈리나 풍선처럼 \n  부풀어 오른 뇌질환을 뇌동맥류라고 합니다.',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 18,
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 5),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      Future.delayed(Duration(seconds: 1), () {
+                                        Navigator.of(context).pop(true);
+                                      });
+                                      return AlertDialog(
+                                        title: Text('정답입니다.'),
+                                      );
+                                    },
+                                  );
+                                },
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10), // 텍스트 여백 조정
+                                  decoration: BoxDecoration(
+                                    color: Colors.transparent, // 투명한 배경색
+                                    border: Border.all(color: Colors.transparent), // 테두리 제거
+                                  ),
+                                  child: Text(
+                                    'O',
+                                    style: TextStyle(
+                                      fontSize: 35, // 텍스트 크기 조정
+                                      color: Colors.black, // 텍스트 색상 지정
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(width: 20),
+                              InkWell(
+                                onTap: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      Future.delayed(Duration(seconds: 1), () {
+                                        Navigator.of(context).pop(true);
+                                      });
+                                      return AlertDialog(
+                                        title: Text('다시 한번 생각해보세요.'),
+                                      );
+                                    },
+                                  );
+                                },
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10), // 텍스트 여백 조정
+                                  decoration: BoxDecoration(
+                                    color: Colors.transparent, // 투명한 배경색
+                                    border: Border.all(color: Colors.transparent), // 테두리 제거
+                                  ),
+                                  child: Text(
+                                    'X',
+                                    style: TextStyle(
+                                      fontSize: 35, // 텍스트 크기 조정
+                                      color: Colors.black, // 텍스트 색상 지정
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                   ],
