@@ -42,17 +42,14 @@ class _HomeState extends State<Home> {
       backgroundColor: Color(0xFF1C2541), // 배경색을 흰색으로 변경
       appBar: AppBar(
         backgroundColor: Color(0xFF1C2541),
-        title: GestureDetector(
+        title: InkWell(
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const MyHomePage()), // 홈 화면으로 이동하는 페이지로 변경
+              MaterialPageRoute(builder: (context) => const MyHomePage()),
             );
           },
-          child: Text(
-            'BRAINPROTECT', // AppBar에 BRAINPROTECT 텍스트 추가
-            style: TextStyle(color: Color(0xFFACD0EF)), // 텍스트 색상을 Color(0xFFACD0EF)로 설정
-          ),
+          child: Image.asset('../assets/HeaderLogo.png'),
         ),
         centerTitle: true,
       ),

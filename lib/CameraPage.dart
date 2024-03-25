@@ -2,7 +2,10 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+import 'ChatBotPage.dart';
+import 'ChoicePage.dart';
 import 'InputPage.dart';
+import 'MapPage.dart';
 import 'MyHomePage.dart';
 
 class CameraPage extends StatefulWidget {
@@ -35,17 +38,14 @@ class _CameraPageState extends State<CameraPage> {
       key: _scaffoldKey,
       appBar: AppBar(
         backgroundColor: Color(0xFF1C2541),
-        title: GestureDetector(
+        title: InkWell(
           onTap: () {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const MyHomePage()),
             );
           },
-          child: Text(
-            'BRAINPROTECT',
-            style: TextStyle(color: Color(0xFFACD0EF)),
-          ),
+          child: Image.asset('../assets/HeaderLogo.png'),
         ),
         centerTitle: true,
       ),
@@ -177,9 +177,55 @@ class _CameraPageState extends State<CameraPage> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        color: Color(0xFF1C2541), // 하단 앱바 배경색
-        child: SizedBox(height: 50), // 높이 조절
+      bottomNavigationBar:BottomNavigationBar(
+        backgroundColor: Color(0xFF1C2541),
+        type: BottomNavigationBarType.fixed, // 아이템들이 동일한 공간을 차지하도록 설정
+        selectedItemColor: Colors.white, // 선택된 아이템의 색상을 검정으로 설정
+        unselectedItemColor: Colors.white, // 선택되지 않은 아이템의 색상을 검정으로 설정
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: ImageIcon(AssetImage('mapIcon.png'), color: Colors.white),
+            label: '지도',
+          ),
+          BottomNavigationBarItem(
+            icon: ImageIcon(AssetImage('TestIcon.png'), color: Colors.white),
+            label: '뇌동맥 판단',
+          ),
+          BottomNavigationBarItem(
+            icon: ImageIcon(AssetImage('CommunityIcon.png'), color: Colors.white),
+            label: '커뮤니티',
+          ),
+          BottomNavigationBarItem(
+            icon: ImageIcon(AssetImage('ChatBotIcon.png'), color: Colors.white),
+            label: '챗봇',
+          ),
+        ],
+        onTap: (index) {
+          // 탭에 따른 페이지 이동 로직
+          switch (index) {
+            case 0:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const MapPage()),
+              );
+              break;
+            case 1:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ChoicePage()),
+              );
+              break;
+            case 2:
+            // 커뮤니티 페이지로 이동해야 하는 경우 여기에 해당 페이지로 이동하는 코드를 추가합니다.
+              break;
+            case 3:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ChatBotPage()),
+              );
+              break;
+          }
+        },
       ),
     );
   }
