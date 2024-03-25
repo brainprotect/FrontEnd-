@@ -153,7 +153,7 @@ class _BrainAssessmentPopupState extends State<BrainAssessmentPopup> {
                 borderRadius: BorderRadius.circular(20),
               ),
               padding: EdgeInsets.symmetric(horizontal: 150, vertical: 20), // 버튼 크기 조절
-              primary: buttonColor ?? Colors.grey[300], // 변수가 널이 아닌 경우 색상 사용, 그렇지 않으면 회색 사용
+              // primary: buttonColor ?? Colors.grey[300], // 변수가 널이 아닌 경우 색상 사용, 그렇지 않으면 회색 사용
             ),
             onHover: (isHovering) {
               setState(() {

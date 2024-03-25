@@ -67,7 +67,7 @@ class _CameraPageState extends State<CameraPage> {
                           borderRadius: BorderRadius.circular(20),
                         ),
                         fixedSize: Size(200, 300),
-                        primary: cameraButtonColor,
+                        // primary: cameraButtonColor,
                         elevation: 7, // 음영 높이 설정
                       ),
                       onHover: (isHovering) {
@@ -112,7 +112,7 @@ class _CameraPageState extends State<CameraPage> {
                           borderRadius: BorderRadius.circular(20),
                         ),
                         fixedSize: Size(200, 300),
-                        primary: galleryButtonColor,
+                        // primary: galleryButtonColor,
                         elevation: 7, // 음영 높이 설정
                       ),
                       onHover: (isHovering) {
@@ -161,7 +161,7 @@ class _CameraPageState extends State<CameraPage> {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 padding: EdgeInsets.symmetric(horizontal: 150, vertical: 20), // 버튼 크기 조절
-                primary: nextButtonColor,
+                // primary: nextButtonColor,
                 elevation: 7, // 음영 높이 설정
               ),
               onHover: (isHovering) {
