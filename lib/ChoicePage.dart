@@ -118,24 +118,30 @@ class ChoicePage extends StatelessWidget {
                             }
                           }),
                         ),
-                        child: Container( // 이미지와 텍스트를 감싸는 컨테이너 추가
-                          child: Column(
+                          child: Row(
                             children: [
-                              Image.asset(
-                                'choiceIcon1.png',
+                              Container( // 이미지를 감싸는 컨테이너 추가
+                                child: Column(
+                                  children: [
+                                    Image.asset(
+                                      'choiceIcon1.png',
+                                    ),
+                                  ],
+                                ),
                               ),
-                              // Text(
-                              //   '직접 입력',
-                              //   style: TextStyle(
-                              //     fontSize: 18,
-                              //     fontWeight: FontWeight.bold,
-                              //     color: Colors.black,
-                              //   ),
-                              // ),
+                              Container( // 텍스트를 감싸는 컨테이너 추가
+                                child: Text(
+                                  '직접 입력',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ),
                             ],
                           ),
                         ),
-                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(12.0),
@@ -173,19 +179,27 @@ class ChoicePage extends StatelessWidget {
                             }
                           }),
                         ),
-                        child: Column(
+                        child: Row(
                           children: [
-                            // Icon(Icons.camera_alt_outlined, size: 48 * 1.5, color: Colors.black),
-                            const SizedBox(height: 8),
-                            Image.asset('choiceIcon2.png',),
-                            // Text(
-                            //   '촬영하기',
-                            //   style: TextStyle(
-                            //     fontSize: 18,
-                            //     fontWeight: FontWeight.bold,
-                            //     color: Colors.black,
-                            //   ),
-                            // ),
+                            Container( // 이미지를 감싸는 컨테이너 추가
+                              child: Column(
+                                children: [
+                                  Image.asset(
+                                    'choiceIcon2.png',
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container( // 텍스트를 감싸는 컨테이너 추가
+                              child: Text(
+                                '촬영하기',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -226,20 +240,27 @@ class ChoicePage extends StatelessWidget {
                             }
                           }),
                         ),
-                        child: Column(
+                        child: Row(
                           children: [
-                            // Icon(Icons.arrow_circle_down_outlined, size: 48 * 1.5, color: Colors.black),
-                            const SizedBox(height: 8),
-                            Image.asset('choiceIcon3.png',),
-                            // Text(
-                            //   '건강 정보\n불러오기',
-                            //   textAlign: TextAlign.center,
-                            //   style: TextStyle(
-                            //     fontSize: 18,
-                            //     fontWeight: FontWeight.bold,
-                            //     color: Colors.black,
-                            //   ),
-                            // ),
+                            Container( // 이미지를 감싸는 컨테이너 추가
+                              child: Column(
+                                children: [
+                                  Image.asset(
+                                    'choiceIcon3.png',
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container( // 텍스트를 감싸는 컨테이너 추가
+                              child: Text(
+                                '건강 정보\n 불러오기',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),
