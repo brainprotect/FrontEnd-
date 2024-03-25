@@ -1,8 +1,8 @@
-
 import 'package:brain/ChatBotPage.dart';
 import 'package:brain/ChoicePage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:flutter/material.dart';
 import 'MyHomePage.dart';
 
 class MapPage extends StatefulWidget {
@@ -16,7 +16,6 @@ class _MapPageState extends State<MapPage> {
   late GoogleMapController mapController;
   final LatLng _center = const LatLng(37.272149, 127.108282); // 센터 위도 경도
 
-
   // Define a Set to hold the markers
   Set<Marker> _markers = {};
 
@@ -28,19 +27,23 @@ class _MapPageState extends State<MapPage> {
   }
 
   int _markerIdCounter = 1;
+
   // Function to add marker
   void _addMarker(double latitude, double longitude) {
     setState(() {
       _markers.add(
         Marker(
-          markerId: MarkerId(_markerIdCounter.toString()), // Unique identifier for the marker
-          position: LatLng(latitude, longitude), // Position of the marker
+          markerId: MarkerId(_markerIdCounter.toString()),
+          // Unique identifier for the marker
+          position: LatLng(latitude, longitude),
+          // Position of the marker
           // infoWindow: InfoWindow(
           //   title: hospitalName, // Title for the InfoWindow
           //   //snippet: "병원", // You can customize the snippet as needed
           // ),
           // icon: BitmapDescriptor.defaultMarker, // Icon for the marker
-          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue), //블루로 색상 바꾸는거 근데 안되서 assess로 따와야함
+          icon: BitmapDescriptor.defaultMarkerWithHue(
+              BitmapDescriptor.hueBlue), //블루로 색상 바꾸는거 근데 안되서 assess로 따와야함
         ),
       );
       _markerIdCounter++;
@@ -72,7 +75,7 @@ class _MapPageState extends State<MapPage> {
               MaterialPageRoute(builder: (context) => const MyHomePage()),
             );
           },
-          child: Image.asset('../assets/HeaderLogo.png'),
+          child: Image.asset('assets/HeaderLogo.png'), // 이미지 경로 수정
         ),
         centerTitle: true,
       ),
@@ -86,24 +89,35 @@ class _MapPageState extends State<MapPage> {
       ),
       bottomNavigationBar:BottomNavigationBar(
         backgroundColor: Color(0xFF1C2541),
-        type: BottomNavigationBarType.fixed, // 아이템들이 동일한 공간을 차지하도록 설정
-        selectedItemColor: Colors.white, // 선택된 아이템의 색상을 검정으로 설정
-        unselectedItemColor: Colors.white, // 선택되지 않은 아이템의 색상을 검정으로 설정
+        type: BottomNavigationBarType.fixed,
+        // 아이템들이 동일한 공간을 차지하도록 설정
+        selectedItemColor: Colors.white,
+        // 선택된 아이템의 색상을 검정으로 설정
+        unselectedItemColor: Colors.white,
+        // 선택되지 않은 아이템의 색상을 검정으로 설정
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('mapIcon.png'), color: Colors.white),
+            icon: ImageIcon(AssetImage('assets/mapIcon.png'),
+                color: Colors.white),
+            // 이미지 경로 수정
             label: '지도',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('TestIcon.png'), color: Colors.white),
+            icon: ImageIcon(AssetImage('assets/TestIcon.png'),
+                color: Colors.white),
+            // 이미지 경로 수정
             label: '뇌동맥 판단',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('CommunityIcon.png'), color: Colors.white),
+            icon: ImageIcon(AssetImage('assets/CommunityIcon.png'),
+                color: Colors.white),
+            // 이미지 경로 수정
             label: '커뮤니티',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('ChatBotIcon.png'), color: Colors.white),
+            icon: ImageIcon(AssetImage('assets/ChatBotIcon.png'),
+                color: Colors.white),
+            // 이미지 경로 수정
             label: '챗봇',
           ),
         ],
@@ -123,7 +137,7 @@ class _MapPageState extends State<MapPage> {
               );
               break;
             case 2:
-            // 커뮤니티 페이지로 이동해야 하는 경우 여기에 해당 페이지로 이동하는 코드를 추가합니다.
+              // 커뮤니티 페이지로 이동해야 하는 경우 여기에 해당 페이지로 이동하는 코드를 추가합니다.
               break;
             case 3:
               Navigator.push(
@@ -137,4 +151,3 @@ class _MapPageState extends State<MapPage> {
     );
   }
 }
-

@@ -102,7 +102,6 @@ import 'dart:convert';
 
 import 'MyHomePage.dart'; // json.encode를 사용하기 위해 import합니다.
 
-
 class InputPage extends StatefulWidget {
   const InputPage({Key? key}) : super(key: key);
 
@@ -111,7 +110,6 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-
   final TextEditingController baseYearController = TextEditingController();
   final TextEditingController subscriberIdController = TextEditingController();
   final TextEditingController cityCodeController = TextEditingController();
@@ -119,31 +117,42 @@ class _InputPageState extends State<InputPage> {
   final TextEditingController ageGroupCodeController = TextEditingController();
   final TextEditingController heightController = TextEditingController();
   final TextEditingController weightController = TextEditingController();
-  final TextEditingController waistCircumferenceController = TextEditingController();
+  final TextEditingController waistCircumferenceController =
+      TextEditingController();
   final TextEditingController leftEyeSightController = TextEditingController();
   final TextEditingController rightEyeSightController = TextEditingController();
   final TextEditingController leftHearingController = TextEditingController();
   final TextEditingController rightHearingController = TextEditingController();
-  final TextEditingController systolicBloodPressureController = TextEditingController();
-  final TextEditingController diastolicBloodPressureController = TextEditingController();
-  final TextEditingController fastingBloodSugarController = TextEditingController();
-  final TextEditingController totalCholesterolController = TextEditingController();
+  final TextEditingController systolicBloodPressureController =
+      TextEditingController();
+  final TextEditingController diastolicBloodPressureController =
+      TextEditingController();
+  final TextEditingController fastingBloodSugarController =
+      TextEditingController();
+  final TextEditingController totalCholesterolController =
+      TextEditingController();
   final TextEditingController triglyceridesController = TextEditingController();
-  final TextEditingController hdlCholesterolController = TextEditingController();
-  final TextEditingController ldlCholesterolController = TextEditingController();
+  final TextEditingController hdlCholesterolController =
+      TextEditingController();
+  final TextEditingController ldlCholesterolController =
+      TextEditingController();
   final TextEditingController hemoglobinController = TextEditingController();
   final TextEditingController urineProteinController = TextEditingController();
-  final TextEditingController serumCreatinineController = TextEditingController();
+  final TextEditingController serumCreatinineController =
+      TextEditingController();
   final TextEditingController astController = TextEditingController();
   final TextEditingController altController = TextEditingController();
   final TextEditingController gammaGtpController = TextEditingController();
   final TextEditingController smokingStatusController = TextEditingController();
-  final TextEditingController drinkingStatusController = TextEditingController();
+  final TextEditingController drinkingStatusController =
+      TextEditingController();
   final TextEditingController oralExamController = TextEditingController();
   final TextEditingController dentalCariesController = TextEditingController();
   final TextEditingController missingTeethController = TextEditingController();
-  final TextEditingController dentalAbnormalitiesController = TextEditingController();
-  final TextEditingController thirdMolarAbnormalitiesController = TextEditingController();
+  final TextEditingController dentalAbnormalitiesController =
+      TextEditingController();
+  final TextEditingController thirdMolarAbnormalitiesController =
+      TextEditingController();
   final TextEditingController tartarController = TextEditingController();
 
   @override
@@ -158,7 +167,7 @@ class _InputPageState extends State<InputPage> {
               MaterialPageRoute(builder: (context) => const MyHomePage()),
             );
           },
-          child: Image.asset('../assets/HeaderLogo.png'),
+          child: Image.asset('assets/HeaderLogo.png'), // 이미지 경로 수정
         ),
         centerTitle: true,
       ),
@@ -352,14 +361,14 @@ class _InputPageState extends State<InputPage> {
                   // 데이터가 성공적으로 전송된 경우 결과 페이지로 이동합니다.
                   Navigator.push(
                     context,
-
-                      MaterialPageRoute(
+                    MaterialPageRoute(
                       builder: (context) => ResultPage(
-                      systolicBloodPressure: systolicBloodPressureController.text,
-                      fastingBloodSugar: fastingBloodSugarController.text,
-                     ),
+                        systolicBloodPressure:
+                            systolicBloodPressureController.text,
+                        fastingBloodSugar: fastingBloodSugarController.text,
                       ),
-                 );
+                    ),
+                  );
                 } else {
                   // 데이터 전송에 실패한 경우 알림을 표시합니다.
                   ScaffoldMessenger.of(context).showSnackBar(
@@ -367,8 +376,7 @@ class _InputPageState extends State<InputPage> {
                   );
                 }
               },
-              child:
-              const Text('결과보기'),
+              child: const Text('결과보기'),
             ),
           ],
         ),
@@ -376,13 +384,15 @@ class _InputPageState extends State<InputPage> {
     );
   }
 }
+
 Future<bool> sendDataToServer(Map<String, dynamic> healthRecord) async {
   final url = Uri.parse('http://localhost:8080/save-data');
 
   try {
     final response = await http.post(
       url,
-      headers: {'Content-Type': 'application/json'}, // JSON 형식으로 데이터를 전송하기 위한 헤더를 추가합니다.
+      headers: {'Content-Type': 'application/json'},
+      // JSON 형식으로 데이터를 전송하기 위한 헤더를 추가합니다.
       body: json.encode(healthRecord), // Map을 JSON 문자열로 변환하여 전송합니다.
     );
 

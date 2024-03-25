@@ -49,7 +49,7 @@ class _HomeState extends State<Home> {
               MaterialPageRoute(builder: (context) => const MyHomePage()),
             );
           },
-          child: Image.asset('../assets/HeaderLogo.png'),
+          child: Image.asset('assets/HeaderLogo.png'), // 이미지 경로 수정
         ),
         centerTitle: true,
       ),
@@ -59,7 +59,7 @@ class _HomeState extends State<Home> {
             Expanded(child: MessagesScreen(messages: messages)),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-               // 입력하는 텍스트 필드의 배경색을 흰색으로 변경
+              // 입력하는 텍스트 필드의 배경색을 흰색으로 변경
               child: Row(
                 children: [
                   Expanded(
@@ -69,7 +69,8 @@ class _HomeState extends State<Home> {
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderSide: BorderSide.none, // 텍스트 필드의 외곽선 제거
-                          borderRadius: BorderRadius.circular(20), // 텍스트 필드의 모서리를 둥글게 설정
+                          borderRadius:
+                              BorderRadius.circular(20), // 텍스트 필드의 모서리를 둥글게 설정
                         ),
                         filled: true,
                         fillColor: Colors.white, // 입력하는 텍스트 필드의 배경색을 5BC0BE로 변경

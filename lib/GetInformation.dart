@@ -9,7 +9,6 @@ import 'dart:convert';
 //   'serviceKey': apiKey, // 여기에서 apiKey는 URL 인코딩을 고려하지 않고 직접 입력
 // });
 
-
 //건강검진정보 받아오기 위젯
 class GetInformation extends StatefulWidget {
   const GetInformation({Key? key}) : super(key: key);
@@ -54,11 +53,14 @@ class _GetInformationState extends State<GetInformation> {
 }
 
 class HealthCheckService {
-  Future<dynamic> fetchHealthData({int page = 1, int perPage = 10, String returnType = 'JSON'}) async {
+  Future<dynamic> fetchHealthData(
+      {int page = 1, int perPage = 10, String returnType = 'JSON'}) async {
     // Decoding된 일반 인증키 사용
-    String apiKey = 'JgAb28Ve/vBqEp+TZ+HMzLl48HjWpJG/Ol3n1kPoHmRhvY4maXS4a93UJCLeQu/AhTLCFUchhX1+hNz5ctHdvg==';
+    String apiKey =
+        'JgAb28Ve/vBqEp+TZ+HMzLl48HjWpJG/Ol3n1kPoHmRhvY4maXS4a93UJCLeQu/AhTLCFUchhX1+hNz5ctHdvg==';
     // Uri.https를 사용하여 요청 URL 구성
-    var uri = Uri.https('api.odcloud.kr', '/api/15007122/v1/uddi:0c59c663-3222-4e70-80eb-fb993b5bacf7', {
+    var uri = Uri.https('api.odcloud.kr',
+        '/api/15007122/v1/uddi:0c59c663-3222-4e70-80eb-fb993b5bacf7', {
       'page': page.toString(),
       'perPage': perPage.toString(),
       'returnType': returnType,
