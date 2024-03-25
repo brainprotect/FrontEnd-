@@ -251,8 +251,7 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding:
-                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
                 child: Container(
                   width: 380,
                   height: 220,
@@ -261,8 +260,16 @@ class MyHomePage extends StatelessWidget {
                     color: Color(0xFFD9D9D9),
                     borderRadius: BorderRadius.circular(30),
                   ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Text(
+                      '우리 어플은 딥러닝 A.I를 사용하여 정확한 뇌동맥류 예측과 함께 챗봇을 활용하여 맞춤형 의료 정보서비스를 제공합니다. \n\n또한 건강검진표를 활용하여 뇌동맥류 위험군을 판단해주고, 위치 서비스를 통해 주변 병원을 추천하여 편의서비스를 제공합니다. ',
+                      style: TextStyle(fontSize: 16, fontFamily: 'Sejong'),
+                    ),
+                  ),
                 ),
               ),
+
               Padding(
                 padding: const EdgeInsets.symmetric(
                     horizontal: 20.0, vertical: 40.0),
@@ -272,6 +279,13 @@ class MyHomePage extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Color(0xFFD9D9D9),
                     borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Text(
+                      '다른 어플과 차별되는 점은 사용자 맞춤형 서비스를 강조하며, 신속하고 정확한 뇌동맥류 예측과 함께 다양한 기능을 제공하여 사용자들의 편의를 극대화하는 데에 중점을 두고 있습니다.',
+                      style: TextStyle(fontSize: 18, fontFamily: 'Sejong'),
+                    ),
                   ),
                 ),
               ),
