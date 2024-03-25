@@ -115,7 +115,7 @@ class MyHomePage extends StatelessWidget {
                                 spreadRadius: 2,
                                 blurRadius: 5,
                                 offset:
-                                    Offset(0, 3), // changes position of shadow
+                                Offset(0, 3), // changes position of shadow
                               ),
                             ],
                           ),
@@ -129,13 +129,13 @@ class MyHomePage extends StatelessWidget {
                                 color: Colors.black,
                               ),
                             ),
-                        ),
-                      );
-                    },
-                  );
-                }).toList(),
+                          ),
+                        );
+                      },
+                    );
+                  }).toList(),
+                ),
               ),
-            ),
 
               Padding(
                 padding: const EdgeInsets.symmetric(
@@ -252,7 +252,7 @@ class MyHomePage extends StatelessWidget {
               ),
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
                 child: Container(
                   width: 380,
                   height: 220,
@@ -322,7 +322,7 @@ class MyHomePage extends StatelessWidget {
                 );
                 break;
               case 1:
-                // 뇌동맥 판단 버튼을 눌렀을 때 동작
+              // 뇌동맥 판단 버튼을 눌렀을 때 동작
                 showDialog(
                   context: context,
                   builder: (BuildContext context) {
@@ -331,7 +331,7 @@ class MyHomePage extends StatelessWidget {
                 );
                 break;
               case 2:
-                // 커뮤니티 페이지로 이동해야 하는 경우 여기에 해당 페이지로 이동하는 코드를 추가합니다.
+              // 커뮤니티 페이지로 이동해야 하는 경우 여기에 해당 페이지로 이동하는 코드를 추가합니다.
                 break;
               case 3:
                 Navigator.push(
