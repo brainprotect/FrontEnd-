@@ -151,25 +151,30 @@ class _BrainAssessmentPopupState extends State<BrainAssessmentPopup> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(
-                                builder: (context) => ChoicePage()),
+                            MaterialPageRoute(builder: (context) => ChoicePage()),
                           );
                         },
-                        style: ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
+                        style: ButtonStyle(
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
                           ),
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 10),
-                          // primary: buttonColor ?? Colors.grey[300],
+                          padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                          ),
+                          backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                                (Set<MaterialState> states) {
+                              // 버튼의 색상을 상태에 따라 동적으로 변경합니다.
+                              if (states.contains(MaterialState.pressed)) {
+                                // 클릭 시 배경 색
+                                return Color(0xFF6C63FE)!;
+                              }
+                              // 클릭되지 않았을 때의 배경 색
+                              return Colors.grey[300]!;
+                            },
+                          ),
                         ),
-                        onHover: (isHovering) {
-                          setState(() {
-                            buttonColor = isHovering
-                                ? Color(0xFF6C63FE)
-                                : Colors.grey[300];
-                          });
-                        },
                         child: Text(
                           '다음 단계로',
                           style: TextStyle(color: Colors.white),

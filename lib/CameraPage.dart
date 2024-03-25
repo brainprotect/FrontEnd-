@@ -61,22 +61,34 @@ class _CameraPageState extends State<CameraPage> {
                   children: [
                     SizedBox(height: 20),
                     ElevatedButton(
-                      onPressed: () => _pickImage(ImageSource.camera),
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        fixedSize: Size(200, 300),
-                        // primary: cameraButtonColor,
-                        elevation: 7, // 음영 높이 설정
-                      ),
-                      onHover: (isHovering) {
+                      onPressed: () {
                         setState(() {
-                          cameraButtonColor = isHovering
-                              ? Color(0xFF6C63FE)
-                              : Color(0xFFD9D9D9);
+                          cameraButtonColor = Color(0xFF6C63FE); // 버튼이 눌릴 때 색상 변경
                         });
+                        _pickImage(ImageSource.camera);
                       },
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                        fixedSize: MaterialStateProperty.all<Size>(
+                          Size(175, 275),
+                        ),
+                        backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                              (states) {
+                            if (states.contains(MaterialState.pressed)) {
+                              // 클릭 시 배경 색
+                              return Color(0xFF6C63FE); // 클릭 시 색상
+                            } else {
+                              // 클릭되지 않았을 때의 배경 색
+                              return Color(0xFFD9D9D9); // 클릭되지 않은 상태의 색상
+                            }
+                          },
+                        ),
+                        elevation: MaterialStateProperty.all<double>(7), // 음영 높이 설정
+                      ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
@@ -85,8 +97,8 @@ class _CameraPageState extends State<CameraPage> {
                             padding: const EdgeInsets.only(bottom: 0.0),
                             child: Image.asset(
                               'assets/img_camera2.png', // 이미지 파일 경로
-                              width: 250,
-                              height: 250,
+                              width: 220,
+                              height: 220,
                             ),
                           ),
                           // 버튼 텍스트
@@ -94,8 +106,7 @@ class _CameraPageState extends State<CameraPage> {
                             padding: EdgeInsets.only(bottom: 25.0),
                             child: Text(
                               "촬영하기",
-                              style:
-                                  TextStyle(fontSize: 15, color: Colors.white),
+                              style: TextStyle(fontSize: 15, color: Colors.white),
                             ),
                           ),
                         ],
@@ -109,22 +120,34 @@ class _CameraPageState extends State<CameraPage> {
                   children: [
                     SizedBox(height: 20),
                     ElevatedButton(
-                      onPressed: () => _pickImage(ImageSource.gallery),
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        fixedSize: Size(200, 300),
-                        // primary: galleryButtonColor,
-                        elevation: 7, // 음영 높이 설정
-                      ),
-                      onHover: (isHovering) {
+                      onPressed: () {
+                        _pickImage(ImageSource.gallery);
                         setState(() {
-                          galleryButtonColor = isHovering
-                              ? Color(0xFF6C63FE)
-                              : Color(0xFFD9D9D9);
+                          galleryButtonColor = Color(0xFF6C63FE); // 버튼이 눌릴 때 색상 변경
                         });
                       },
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                        fixedSize: MaterialStateProperty.all<Size>(
+                        Size(175, 275),
+                      ),
+                        backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                              (states) {
+                            if (states.contains(MaterialState.pressed)) {
+                              // 클릭 시 배경 색
+                              return Color(0xFF6C63FE); // 클릭 시 색상
+                            } else {
+                              // 클릭되지 않았을 때의 배경 색
+                              return Color(0xFFD9D9D9); // 클릭되지 않은 상태의 색상
+                            }
+                          },
+                        ),
+                        elevation: MaterialStateProperty.all<double>(7), // 음영 높이 설정
+                      ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
@@ -133,8 +156,8 @@ class _CameraPageState extends State<CameraPage> {
                             padding: const EdgeInsets.only(bottom: 0.0),
                             child: Image.asset(
                               'assets/img_gallery2.png', // 이미지 파일 경로
-                              width: 250,
-                              height: 250,
+                              width: 220,
+                              height: 220,
                             ),
                           ),
                           // 버튼 텍스트
@@ -142,8 +165,7 @@ class _CameraPageState extends State<CameraPage> {
                             padding: EdgeInsets.only(bottom: 25.0),
                             child: Text(
                               "이미지 제출하기",
-                              style:
-                                  TextStyle(fontSize: 15, color: Colors.white),
+                              style: TextStyle(fontSize: 15, color: Colors.white),
                             ),
                           ),
                         ],
@@ -162,21 +184,28 @@ class _CameraPageState extends State<CameraPage> {
                   MaterialPageRoute(builder: (context) => InputPage()),
                 );
               },
-              style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
+              style: ButtonStyle(
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
                 ),
-                padding: EdgeInsets.symmetric(horizontal: 150, vertical: 20),
-                // 버튼 크기 조절
-                // primary: nextButtonColor,
-                elevation: 7, // 음영 높이 설정
+                padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+                  EdgeInsets.symmetric(horizontal: 150, vertical: 20),
+                ),
+                backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                      (states) {
+                    if (states.contains(MaterialState.pressed)) {
+                      // 클릭 시 배경 색
+                      return Color(0xFF6C63FE); // 클릭 시 색상
+                    } else {
+                      // 클릭되지 않았을 때의 배경 색
+                      return Color(0xFFD9D9D9); // 클릭되지 않은 상태의 색상
+                    }
+                  },
+                ),
+                elevation: MaterialStateProperty.all<double>(7), // 음영 높이 설정
               ),
-              onHover: (isHovering) {
-                setState(() {
-                  nextButtonColor =
-                      isHovering ? Color(0xFF6C63FE) : Color(0xFFD9D9D9);
-                });
-              },
               child: Text(
                 '다음 단계로',
                 style: TextStyle(color: Colors.white), // 흰색 글자색
