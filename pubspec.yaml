@@ -60,12 +60,12 @@ flutter:
     - assets/
 
   fonts:
-    - family: Sejonghospital
+    - family: Sejong_hospital
       fonts:
         - asset: assets/fonts/Sejong_hospital_Bold.ttf
-          weight: 300
+          weight: 700
         - asset: assets/fonts/Sejong_hospital_Light.ttf
-          weight: 100
+          weight: 300
   #    - family: Schyler
   #      fonts:
   #        - asset: fonts/Schyler-Regular.ttf

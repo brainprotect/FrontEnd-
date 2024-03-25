@@ -175,7 +175,9 @@ class MyHomePage extends StatelessWidget {
                               '뇌정맥의 특정 부위가 꽈리나 풍선처럼 \n  부풀어 오른 뇌질환을 뇌동맥류라고 합니다.',
                               textAlign: TextAlign.center,
                               style: TextStyle(
+                                fontFamily: 'Sejong_hospital',
                                 fontSize: 18,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
@@ -206,6 +208,7 @@ class MyHomePage extends StatelessWidget {
                                   child: Text(
                                     'O',
                                     style: TextStyle(
+
                                       fontSize: 35, // 텍스트 크기 조정
                                       color: Colors.black, // 텍스트 색상 지정
                                     ),
