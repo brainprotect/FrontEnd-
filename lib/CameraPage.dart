@@ -72,7 +72,9 @@ class _CameraPageState extends State<CameraPage> {
                       ),
                       onHover: (isHovering) {
                         setState(() {
-                          cameraButtonColor = isHovering ? Color(0xFF6C63FE) : Color(0xFFD9D9D9);
+                          cameraButtonColor = isHovering
+                              ? Color(0xFF6C63FE)
+                              : Color(0xFFD9D9D9);
                         });
                       },
                       child: Column(
@@ -92,7 +94,8 @@ class _CameraPageState extends State<CameraPage> {
                             padding: EdgeInsets.only(bottom: 25.0),
                             child: Text(
                               "촬영하기",
-                              style: TextStyle(fontSize: 15, color: Colors.white),
+                              style:
+                                  TextStyle(fontSize: 15, color: Colors.white),
                             ),
                           ),
                         ],
@@ -117,7 +120,9 @@ class _CameraPageState extends State<CameraPage> {
                       ),
                       onHover: (isHovering) {
                         setState(() {
-                          galleryButtonColor = isHovering ? Color(0xFF6C63FE) : Color(0xFFD9D9D9);
+                          galleryButtonColor = isHovering
+                              ? Color(0xFF6C63FE)
+                              : Color(0xFFD9D9D9);
                         });
                       },
                       child: Column(
@@ -137,7 +142,8 @@ class _CameraPageState extends State<CameraPage> {
                             padding: EdgeInsets.only(bottom: 25.0),
                             child: Text(
                               "이미지 제출하기",
-                              style: TextStyle(fontSize: 15, color: Colors.white),
+                              style:
+                                  TextStyle(fontSize: 15, color: Colors.white),
                             ),
                           ),
                         ],
@@ -160,13 +166,15 @@ class _CameraPageState extends State<CameraPage> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
-                padding: EdgeInsets.symmetric(horizontal: 150, vertical: 20), // 버튼 크기 조절
+                padding: EdgeInsets.symmetric(horizontal: 150, vertical: 20),
+                // 버튼 크기 조절
                 // primary: nextButtonColor,
                 elevation: 7, // 음영 높이 설정
               ),
               onHover: (isHovering) {
                 setState(() {
-                  nextButtonColor = isHovering ? Color(0xFF6C63FE) : Color(0xFFD9D9D9);
+                  nextButtonColor =
+                      isHovering ? Color(0xFF6C63FE) : Color(0xFFD9D9D9);
                 });
               },
               child: Text(
@@ -179,24 +187,35 @@ class _CameraPageState extends State<CameraPage> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Color(0xFF1C2541),
-        type: BottomNavigationBarType.fixed, // 아이템들이 동일한 공간을 차지하도록 설정
-        selectedItemColor: Colors.white, // 선택된 아이템의 색상을 검정으로 설정
-        unselectedItemColor: Colors.white, // 선택되지 않은 아이템의 색상을 검정으로 설정
+        type: BottomNavigationBarType.fixed,
+        // 아이템들이 동일한 공간을 차지하도록 설정
+        selectedItemColor: Colors.white,
+        // 선택된 아이템의 색상을 검정으로 설정
+        unselectedItemColor: Colors.white,
+        // 선택되지 않은 아이템의 색상을 검정으로 설정
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('assets/mapIcon.png'), color: Colors.white), // 이미지 경로 수정
+            icon: ImageIcon(AssetImage('assets/mapIcon.png'),
+                color: Colors.white),
+            // 이미지 경로 수정
             label: '지도',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('assets/TestIcon.png'), color: Colors.white), // 이미지 경로 수정
+            icon: ImageIcon(AssetImage('assets/TestIcon.png'),
+                color: Colors.white),
+            // 이미지 경로 수정
             label: '뇌동맥 판단',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('assets/CommunityIcon.png'), color: Colors.white), // 이미지 경로 수정
+            icon: ImageIcon(AssetImage('assets/CommunityIcon.png'),
+                color: Colors.white),
+            // 이미지 경로 수정
             label: '커뮤니티',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('assets/ChatBotIcon.png'), color: Colors.white), // 이미지 경로 수정
+            icon: ImageIcon(AssetImage('assets/ChatBotIcon.png'),
+                color: Colors.white),
+            // 이미지 경로 수정
             label: '챗봇',
           ),
         ],
@@ -216,7 +235,7 @@ class _CameraPageState extends State<CameraPage> {
               );
               break;
             case 2:
-            // 커뮤니티 페이지로 이동해야 하는 경우 여기에 해당 페이지로 이동하는 코드를 추가합니다.
+              // 커뮤니티 페이지로 이동해야 하는 경우 여기에 해당 페이지로 이동하는 코드를 추가합니다.
               break;
             case 3:
               Navigator.push(

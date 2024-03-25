@@ -151,19 +151,23 @@ class _BrainAssessmentPopupState extends State<BrainAssessmentPopup> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => ChoicePage()),
+                            MaterialPageRoute(
+                                builder: (context) => ChoicePage()),
                           );
                         },
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
-                          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 10),
                           // primary: buttonColor ?? Colors.grey[300],
                         ),
                         onHover: (isHovering) {
                           setState(() {
-                            buttonColor = isHovering ? Color(0xFF6C63FE) : Colors.grey[300];
+                            buttonColor = isHovering
+                                ? Color(0xFF6C63FE)
+                                : Colors.grey[300];
                           });
                         },
                         child: Text(
