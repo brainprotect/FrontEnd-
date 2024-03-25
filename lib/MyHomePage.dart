@@ -251,47 +251,7 @@ class MyHomePage extends StatelessWidget {
             ),
 
 
-            Padding(
-              padding: const EdgeInsets.only(bottom: 20.0),
-              child: Container(
-                width: 380,
-                height: 220,
-                margin: EdgeInsets.only(bottom: 20.0),
-                decoration: BoxDecoration(
-                  color: Color(0xFFD9D9D9),
-                  borderRadius: BorderRadius.circular(30),
-                ),
-              ),
-            ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 20.0, vertical: 50.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "오늘의 퀴즈",
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20.0,
-                    ),
-                    Container(
-                      width: 380,
-                      height: 180,
-                      margin: EdgeInsets.only(bottom: 20.0),
-                      decoration: BoxDecoration(
-                        color: Color(0xFFD9D9D9),
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
